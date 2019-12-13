@@ -3,13 +3,17 @@ package cat.villalba.projectem7_david_raul;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView mRegistro;
+    private EditText mUser, mPass;
+    Boolean correcto = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,5 +27,27 @@ public class MainActivity extends AppCompatActivity {
     public void registro(View view){
         Intent t = new Intent(this,Registro.class);
         startActivity(t);
+    }
+
+    public void enter(View view) {
+        compruebaCredenciales();
+        if(correcto == true) {
+            Intent d = new Intent(this, AppEntrada.class);
+            startActivity(d);
+        }
+    }
+
+    public Boolean compruebaCredenciales() {
+
+        SharedPreferences pref = getSharedPreferences("Usuario y contraseña", 0);
+        String usuario = pref.getString("usuario","Error, no existe.");
+        String pass = pref.getString("contraseña","Error, no existe.");
+        if(mUser.getText().toString().equals(usuario) && mPass.getText().toString().equals(pass)) {
+            correcto = true;
+            return correcto;
+        } else {
+            return correcto;
+        }
+
     }
 }
