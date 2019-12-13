@@ -17,7 +17,7 @@ public class Registro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.pantalla_registro);
         usuario = findViewById(R.id.etApodo);
         pass1 = findViewById(R.id.etContraseña1);
         pass2 = findViewById(R.id.etContraseña2);
@@ -29,7 +29,7 @@ public class Registro extends AppCompatActivity {
         String part2 = pass2.getText().toString();
         boolean resultado;
 
-        if(part1.equals(part2)){
+        if(part1.equals(part2) && (part1 != null || part2 !=null)){
             resultado = true;
         }else{
             resultado = false;
