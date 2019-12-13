@@ -14,6 +14,8 @@ public class Registro extends AppCompatActivity {
     private EditText pass1;
     private EditText pass2;
 
+    SharedPreferences pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,7 @@ public class Registro extends AppCompatActivity {
         String apodo = usuario.getText().toString();
         String contra = pass1.getText().toString();
 
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("Usuario y contraseña", 0);
+        pref = getSharedPreferences("Usuario y contraseña", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
         Intent intent = new Intent(this, MainActivity.class);
@@ -49,6 +51,7 @@ public class Registro extends AppCompatActivity {
         if((comprobarContrasena(pass1, pass2) == true)){
             editor.putString("usuario", apodo);
             editor.putString("contraseña", contra);
+            editor.apply();
             editor.commit();
             Toast toast = Toast.makeText(this, "Usuario creado correctamente", Toast.LENGTH_SHORT);
             toast.show();

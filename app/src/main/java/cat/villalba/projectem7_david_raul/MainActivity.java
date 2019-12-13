@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mRegistro = findViewById(R.id.txt_registro);
-
+        mUser = findViewById(R.id.ed_user);
+        mPass = findViewById(R.id.ed_pass);
 
     }
 
@@ -30,23 +32,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void enter(View view) {
-        compruebaCredenciales();
+       compruebaCredenciales();
         if(correcto == true) {
             Intent d = new Intent(this, AppEntrada.class);
             startActivity(d);
+        } else {
+            Toast toast = Toast.makeText(this, "Usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 
-    public Boolean compruebaCredenciales() {
+    public void compruebaCredenciales() {
 
-        SharedPreferences pref = getSharedPreferences("Usuario y contraseña", 0);
+        SharedPreferences pref = getSharedPreferences("Usuario y contraseña", MODE_PRIVATE);
         String usuario = pref.getString("usuario","Error, no existe.");
         String pass = pref.getString("contraseña","Error, no existe.");
         if(mUser.getText().toString().equals(usuario) && mPass.getText().toString().equals(pass)) {
             correcto = true;
-            return correcto;
         } else {
-            return correcto;
+            correcto = false;
         }
 
     }
