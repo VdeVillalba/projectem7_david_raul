@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">projectem7_david_raul</string>
-    <string name="contrase_a">Contraseña</string>
-    <string name="txt_user">TextView</string>
-    <string name="btn_acceder">Acceder</string>
+    <string name="registro">Registro:</string>
+    <string name="nombre">Nombre:</string>
+    <string name="introduce_tu_nombre">Introduce tu nombre</string>
+    <string name="introduce_tu_contrase_a">Introduce tu contraseña</string>
+    <string name="contrase_a">Contraseña:</string>
+    <string name="apodo">Apodo:</string>
+    <string name="apellidos">Apellidos:</string>
+    <string name="introduce_tu_apodo">Introduce tu apodo</string>
+    <string name="repetir">Repetir</string>
+    <string name="introduce_tus_apellidos">Introduce tus apellidos</string>
+    <string name="repite_tu_contrase_a">Repite tu contraseña</string>
+    <string name="registrarse">registrarse</string>
+    <string name="volver">volver</string>
 </resources>
