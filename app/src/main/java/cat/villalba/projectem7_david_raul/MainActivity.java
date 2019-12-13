@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onClick(View v) {
+    public void mostrarToast(View v) {
         Toast.makeText(this,R.string.msg_toast,Toast.LENGTH_LONG).show();
 
 

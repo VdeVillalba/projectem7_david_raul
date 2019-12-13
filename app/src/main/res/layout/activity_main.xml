@@ -50,14 +50,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="62dp"
         android:layout_marginEnd="28dp"
+        android:layout_marginBottom="350dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_user"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_user" />
 
     <Button
-        android:id="@+id/btn_acceso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_acceso"
@@ -70,6 +71,7 @@
         android:id="@+id/textView"
         android:layout_width="121dp"
         android:layout_height="16dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/txt_no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:clickable="true"
+        android:onClick="mostrarToast"
         android:text="@string/txt_registro"
         android:textColor="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
