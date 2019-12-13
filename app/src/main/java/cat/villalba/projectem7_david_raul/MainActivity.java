@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mRegistro = findViewById(R.id.txt_registro);
 
-        mRegistro.setOnClickListener();
 
     }
 
