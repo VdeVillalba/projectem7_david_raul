@@ -13,4 +13,10 @@
     <string name="repite_tu_contrase_a">Repite tu contraseña</string>
     <string name="registrarse">registrarse</string>
     <string name="volver">volver</string>
+    <string name="appRegistro"></string>
+    <string name="msg_toast">HOLAAAA</string>
+    <string name="btn_acceso">Acceder</string>
+    <string name="txt_user">Usuario</string>
+    <string name="txt_no">¿No tienes cuenta?</string>
+    <string name="txt_registro">Registro</string>
 </resources>

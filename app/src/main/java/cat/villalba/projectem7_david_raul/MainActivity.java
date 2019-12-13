@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View v) {
+        Toast.makeText(this,R.string.msg_toast,Toast.LENGTH_LONG).show();
+
 
     }
 }
