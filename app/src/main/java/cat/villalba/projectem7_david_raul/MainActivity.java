@@ -2,6 +2,7 @@ package cat.villalba.projectem7_david_raul;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -19,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onClick(View v) {
-
+    public void registro(View view){
+        Intent t = new Intent(this,Registro.class);
+        startActivity(t);
     }
 }
