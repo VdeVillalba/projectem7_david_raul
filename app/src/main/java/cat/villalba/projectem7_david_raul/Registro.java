@@ -46,17 +46,16 @@ public class Registro extends AppCompatActivity {
 
         Intent intent = new Intent(this, MainActivity.class);
 
-        if(comprobarContrasena(pass1, pass2) == true){
+        if((comprobarContrasena(pass1, pass2) == true)||(contra.matches("")||(pass2.getText().toString().isEmpty()))){
+            Toast toast = Toast.makeText(this, "Error; Contraseña incorrecta", Toast.LENGTH_SHORT);
+            toast.show();
+        }else{
             editor.putString("usuario", apodo);
             editor.putString("contraseña", contra);
             editor.commit();
             Toast toast = Toast.makeText(this, "Usuario creado correctamente", Toast.LENGTH_SHORT);
             toast.show();
             startActivity(intent);
-
-        }else{
-            Toast toast = Toast.makeText(this, "Error; Contraseña incorrecta", Toast.LENGTH_SHORT);
-            toast.show();
         }
     }
 
