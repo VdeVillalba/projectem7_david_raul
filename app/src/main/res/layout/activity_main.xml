@@ -10,24 +10,26 @@
         android:id="@+id/txt_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="364dp"
         android:text="@string/contrase_a"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ed_pass"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_user"
-        app:layout_constraintVertical_bias="0.178" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_user" />
 
     <TextView
         android:id="@+id/txt_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
         android:layout_marginTop="236dp"
         android:text="@string/txt_user"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/ed_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Usuario" />
@@ -36,33 +38,39 @@
         android:id="@+id/ed_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="225dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginTop="224dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/ed_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="350dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_user" />
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_user"
+        app:layout_constraintVertical_bias="0.127" />
 
     <Button
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="36dp"
         android:text="@string/btn_acceso"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_pass" />
@@ -71,26 +79,31 @@
         android:id="@+id/textView"
         android:layout_width="121dp"
         android:layout_height="16dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/txt_no"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/txt_registro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_pass"
-        app:layout_constraintVertical_bias="0.737" />
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <TextView
         android:id="@+id/txt_registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="179dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="179dp"
+        android:layout_marginBottom="31dp"
         android:clickable="true"
+        android:focusable="true"
         android:onClick="mostrarToast"
         android:text="@string/txt_registro"
         android:textColor="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
