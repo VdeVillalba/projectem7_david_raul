@@ -2,10 +2,10 @@ package cat.villalba.projectem7_david_raul;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,9 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void mostrarToast(View v) {
-        Toast.makeText(this,R.string.msg_toast,Toast.LENGTH_LONG).show();
-
-
+    public void registro(View view){
+        Intent t = new Intent(this,Registro.class);
+        startActivity(t);
     }
 }
