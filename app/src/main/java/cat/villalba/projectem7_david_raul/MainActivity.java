@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public void enter(View view) {
        compruebaCredenciales();
         if(correcto == true) {
-            Intent d = new Intent(this, AppEntrada.class);
+            Intent d = new Intent(this, pantalla_principal.class);
             startActivity(d);
         } else {
             Toast toast = Toast.makeText(this, "Usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT);
