@@ -1,5 +1,10 @@
 <resources>
-    <string name="msg_toast">HOLAAAA</string>
+    <string name="pregunta_valoracion">¿Cuánto te ha gustado la película?</string>
+    <string name="rb1">Nada</string>
+    <string name="rb2">Poco</string>
+    <string name="rb3">Bastante</string>
+    <string name="rb4">Mucho</string>
+    <string name="pregunta_1a10">Puntuación del 1 al 10: </string>
     <string name="btn_acceso">Acceder</string>
     <string name="txt_user">Usuario:</string>
     <string name="txt_no">¿No tienes cuenta?</string>

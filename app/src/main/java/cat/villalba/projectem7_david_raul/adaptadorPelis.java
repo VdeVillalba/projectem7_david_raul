@@ -70,13 +70,13 @@ public class adaptadorPelis extends RecyclerView.Adapter<adaptadorPelis.ViewHold
         @Override
         public void onClick(View view) {
             Peli peliActual = mPeliculas.get(getAdapterPosition());
-            Intent detailIntent = new Intent(mContext, DetailActivity.class);
-            detailIntent.putExtra("title", peliActual.getTitulo());
-            detailIntent.putExtra("image_resource",
+            Intent pantallaVotar = new Intent(mContext, VotarActivity.class);
+            pantallaVotar.putExtra("title", peliActual.getTitulo());
+            /*detailIntent.putExtra("image_resource",
                     peliActual.getImageResource());
             detailIntent.putExtra("argumento", peliActual.getResumen());
-            detailIntent.putExtra("Director",peliActual.getDirector());
-            mContext.startActivity(detailIntent);
+            detailIntent.putExtra("Director",peliActual.getDirector());*/
+            mContext.startActivity(pantallaVotar);
 
         }
     }

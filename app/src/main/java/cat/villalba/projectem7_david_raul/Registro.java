@@ -46,7 +46,7 @@ public class Registro extends AppCompatActivity {
         pref = getSharedPreferences("Usuario y contraseña", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Login.class);
 
         if((comprobarContrasena(pass1, pass2) == true)){
             editor.putString("usuario", apodo);
@@ -63,7 +63,7 @@ public class Registro extends AppCompatActivity {
     }
 
     public void volver(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
 
     }

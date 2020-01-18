@@ -12,24 +12,25 @@
         <activity
             android:name=".pantalla_principal"
             android:label="@string/title_activity_pantalla_principal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
             android:name=".Registro"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".Login">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="cat.villalba.projectem7_david_raul.MainActivity" />
+                android:value="cat.villalba.projectem7_david_raul.Login" />
         </activity>
         <activity
-            android:name=".AppEntrada"
-            android:label="@string/app3"
-            android:parentActivityName=".MainActivity">
+            android:name=".VotarActivity"
+            android:label="Votacion"
+            android:parentActivityName=".pantalla_principal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="cat.villalba.projectem7_david_raul.MainActivity" />
+                android:value="cat.villalba.projectem7_david_raul.pantalla_principal" />
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
