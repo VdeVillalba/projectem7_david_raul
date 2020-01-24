@@ -7,73 +7,78 @@
 
     <TextView
         android:id="@+id/idRegistro"
-        android:layout_width="162dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
         android:text="@string/registro"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="76dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="48dp"
         android:text="@string/apodo"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/etApodo"
-        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintHorizontal_bias="0.989"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idRegistro" />
 
     <EditText
         android:id="@+id/etApodo"
         android:layout_width="190dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="16dp"
         android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idRegistro" />
 
     <TextView
         android:id="@+id/idContraseña"
-        android:layout_width="128dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="44dp"
-        android:text="@string/contrase_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="48dp"
+        android:text="@string/contrase_a2"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/etContraseña1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/etContraseña1"
         android:layout_width="190dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:autofillHints=""
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="@+id/idContraseña"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etApodo"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="128dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="36dp"
-        android:text="@string/contrase_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contrase_a2"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/etContraseña2"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -81,19 +86,21 @@
         android:id="@+id/textView3"
         android:layout_width="75dp"
         android:layout_height="32dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="80dp"
         android:text="@string/repetir"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/etContraseña2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idContraseña" />
 
     <EditText
         android:id="@+id/etContraseña2"
         android:layout_width="190dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="16dp"
         android:autofillHints=""
         android:ems="10"
         android:inputType="textPassword"
@@ -104,23 +111,53 @@
         android:id="@+id/button"
         android:layout_width="120dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginStart="44dp"
         android:onClick="registrarUsuario"
         android:text="@string/registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.254"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.581" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="72dp"
         android:onClick="volver"
         android:text="@string/volver"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etContraseña2"
+        app:layout_constraintVertical_bias="0.585" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="157dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

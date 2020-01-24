@@ -21,8 +21,8 @@
             android:id="@+id/ed_user"
             android:layout_width="311dp"
             android:layout_height="wrap_content"
-            android:hint="@string/txt_user"
-            android:inputType="textPersonName|textPassword" />
+            android:hint="@string/txt_user"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -79,7 +79,8 @@
             android:id="@+id/ed_pass"
             android:layout_width="311dp"
             android:layout_height="wrap_content"
-            android:hint="@string/contrase_a" />
+            android:hint="@string/contrase_a"
+            android:inputType="textPersonName|textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
