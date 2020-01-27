@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">projectem7_david_raul</string>
+    <string name="volver">Back</string>
+    <string name="txt_user">User</string>
+    <string name="txt_registro">Register</string>
+    <string name="txt_no">Don\'t you have an account?</string>
+    <string name="title_placeholder">Title</string>
+    <string name="title_activity_pantalla_principal">main_screen</string>
+    <string name="repite_tu_contrase_a">Repeat password</string>
+    <string name="repetir">Repeat</string>
+    <string name="registro">Register</string>
+    <string name="registrarse">Be registered</string>
+    <string name="rb4">Spectacular</string>
+    <string name="rb3">Quite</string>
+    <string name="rb2">Not much</string>
+    <string name="rb1">Not at all</string>
+    <string name="pregunta_valoracion">Did you enjoyed the film?</string>
+    <string name="pregunta_1a10">Rate from 1 to 10:</string>
+    <string name="nombre">Name:</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="introduce_tus_apellidos">Introduce your surname:</string>
+    <string name="introduce_tu_nombre">Introduce your name:</string>
+    <string name="introduce_tu_contrase_a">Introduce your password:</string>
+    <string name="introduce_tu_apodo">Introduce your nickname:</string>
+    <string name="info">Synopsis</string>
+    <string name="director">Director</string>
+    <string name="contrase_a2">Password:</string>
+    <string name="contrase_a">Password:</string>
+    <string name="btn_acceso">Access:</string>
+    <string name="app3">Enter</string>
+    <string name="apodo">Nickname:</string>
+    <string name="apellidos">Surname:</string>
+    <string name="action_settings">Settings</string>
+</resources>
