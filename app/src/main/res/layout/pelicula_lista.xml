@@ -17,6 +17,7 @@
             android:layout_height="160dp"
             android:id="@+id/peliImagen"
             android:scaleType="centerCrop"
+            android:contentDescription="@+id/peliImagen"
             />
 
         <TextView

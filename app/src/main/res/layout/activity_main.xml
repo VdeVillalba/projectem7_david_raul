@@ -20,6 +20,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ed_user"
             android:layout_width="311dp"
+            android:labelFor="@id/ed_user"
             android:layout_height="wrap_content"
             android:hint="@string/txt_user"/>
 
@@ -27,10 +28,12 @@
 
     <Button
         android:id="@+id/btn_acceso"
+        style="@style/Style.Button"
         android:layout_width="88dp"
         android:layout_height="48dp"
         android:onClick="enter"
         android:text="@string/btn_acceso"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -79,6 +82,7 @@
             android:id="@+id/ed_pass"
             android:layout_width="311dp"
             android:layout_height="wrap_content"
+            android:labelFor="@id/ed_pass"
             android:hint="@string/contrase_a"
             android:inputType="textPersonName|textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -93,6 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_camara" />
+        app:srcCompat="@drawable/img_camara"
+        android:contentDescription="TODO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
