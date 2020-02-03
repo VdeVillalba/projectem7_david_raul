@@ -6,7 +6,7 @@
     <string name="txt_no">No tens compte?</string>
     <string name="title_placeholder">Titol</string>
     <string name="title_activity_pantalla_principal">pantalla_principal</string>
-    <string name="repite_tu_contrase_a">Repeteix la contrasenya7</string>
+    <string name="repite_tu_contrase_a">Repeteix la contrasenya</string>
     <string name="repetir">Repeteix</string>
     <string name="registro">Registre</string>
     <string name="registrarse">Registrar-se</string>
@@ -14,6 +14,7 @@
     <string name="rb3">Bastant</string>
     <string name="rb2">Poc</string>
     <string name="rb1">Res</string>
+    <string name="repetir_Contrase_a">Repeteix contrasenya</string>
     <string name="pregunta_valoracion">Quan t\'ha agradat la pelicula?</string>
     <string name="pregunta_1a10">Puntuació de l\'1 al 10:</string>
     <string name="nombre">Nom:</string>
@@ -34,9 +35,9 @@
     <string name="introduce_tu_apodo">Introdueix el teu sobrenom:</string>
     <string name="info">Sinopsi</string>
     <string name="director">Director</string>
-    <string name="contrase_a2">Contrasenya:</string>
-    <string name="contrase_a">Contrasenya:</string>
-    <string name="btn_acceso">Acces:</string>
+    <string name="contrase_a2">Contrasenya</string>
+    <string name="contrase_a">Contrasenya</string>
+    <string name="btn_acceso">Accés</string>
     <string name="app3">Entrada</string>
     <string name="apodo">Sobrenom:</string>
     <string name="apellidos">Cognoms:</string>

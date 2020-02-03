@@ -9,155 +9,90 @@
         android:id="@+id/idRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
         android:text="@string/registro"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="48dp"
-        android:text="@string/apodo"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/etApodo"
-        app:layout_constraintHorizontal_bias="0.989"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idRegistro" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etApodo"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="16dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="18sp"
+        style="@style/Pelis"
+        android:layout_width="310dp"
+        android:layout_height="66dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idRegistro" />
-
-    <TextView
-        android:id="@+id/idContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="48dp"
-        android:text="@string/contrase_a2"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/etContraseña1"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/idRegistro">
 
-    <EditText
-        android:id="@+id/etContraseña1"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/idContraseña"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etApodo"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contrase_a2"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/etContraseña2"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="75dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="80dp"
-        android:text="@string/repetir"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/etContraseña2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idContraseña" />
-
-    <EditText
-        android:id="@+id/etContraseña2"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="16dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseña1" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/apodo"
+            android:inputType="textPersonName"
+            android:labelFor="@id/ed_user" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button"
         android:layout_width="120dp"
         android:layout_height="48dp"
-        android:layout_marginStart="44dp"
         android:onClick="registrarUsuario"
         android:text="@string/registrarse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.141"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.581" />
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="579dp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="72dp"
         android:onClick="volver"
         android:text="@string/volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseña2"
-        app:layout_constraintVertical_bias="0.585" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.321" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/idContraseña"
+        style="@style/Pelis"
+        android:layout_width="311dp"
+        android:layout_height="66dp"
+        app:layout_constraintBottom_toTopOf="@+id/repetirPss"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etApodo">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etContraseña1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/contrase_a"
+            android:inputType="textPassword"
+            android:labelFor="@+id/idContraseña" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="157dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/repetirPss"
+        style="@style/Pelis"
+        android:layout_width="311dp"
+        android:layout_height="66dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etContraseña2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/repetir_Contrase_a"
+            android:inputType="textPassword"
+            android:labelFor="@+id/repetirPss" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
