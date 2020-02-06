@@ -19,7 +19,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/etApodo"
+        android:id="@+id/ed_user"
         style="@style/Pelis"
         android:layout_width="310dp"
         android:layout_height="66dp"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/idRegistro">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_user"
+            android:id="@+id/etApodo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/apodo"
@@ -42,8 +42,9 @@
         android:layout_height="48dp"
         android:onClick="registrarUsuario"
         android:text="@string/registrarse"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="579dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
@@ -54,9 +55,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.321" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/idContraseña"
@@ -66,7 +65,7 @@
         app:layout_constraintBottom_toTopOf="@+id/repetirPss"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etApodo">
+        app:layout_constraintTop_toBottomOf="@+id/ed_user">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etContraseña1"
