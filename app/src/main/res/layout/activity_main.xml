@@ -60,7 +60,7 @@
         android:clickable="true"
         android:onClick="registro"
         android:text="@string/txt_registro"
-        android:textColor="#2196F3"
+        android:textColor="#4da6ff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,11 +93,11 @@
         android:layout_height="153dp"
         android:layout_marginTop="64dp"
         android:layout_marginBottom="127dp"
+        android:contentDescription="@string/img_inici"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_camara"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/img_camara" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

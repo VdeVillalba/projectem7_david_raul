@@ -14,6 +14,7 @@
     <string name="rb3">Bastant</string>
     <string name="rb2">Poc</string>
     <string name="rb1">Res</string>
+    <string name="img_inici">Imatge càmara retro</string>
     <string name="repetir_Contrase_a">Repeteix contrasenya</string>
     <string name="pregunta_valoracion">Quan t\'ha agradat la pelicula?</string>
     <string name="pregunta_1a10">Puntuació de l\'1 al 10:</string>
@@ -39,7 +40,7 @@
     <string name="contrase_a">Contrasenya</string>
     <string name="btn_acceso">Accés</string>
     <string name="app3">Entrada</string>
-    <string name="apodo">Sobrenom:</string>
+    <string name="apodo">Sobrenom</string>
     <string name="apellidos">Cognoms:</string>
     <string name="action_settings">Settings</string>
 
