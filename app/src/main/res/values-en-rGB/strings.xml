@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="img_inici">Retro Camera Image</string>
+    <string name="repetir_Contrase_a">Repeat Password</string>
     <string name="app_name">projectem7_david_raul</string>
     <string name="volver">Back</string>
     <string name="txt_user">User</string>

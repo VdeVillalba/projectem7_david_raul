@@ -45,4 +45,6 @@
     <string name="director">Director</string>
     <string name="info">Sinopsis</string>
     <string name="argumento_detail_text">""</string>
+    <string name="img_inici">Imagen Cámara Retro</string>
+    <string name="repetir_Contrase_a">Repita Contraseña</string>
 </resources>

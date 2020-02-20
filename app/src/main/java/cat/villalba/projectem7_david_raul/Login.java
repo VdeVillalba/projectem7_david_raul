@@ -41,6 +41,9 @@ public class Login extends AppCompatActivity {
         btn_acceso = findViewById(R.id.btn_acceso);
         txt_registro = findViewById(R.id.txt_registro);
 
+        edUser = findViewById(R.id.ed_user);
+        ed_pass = findViewById(R.id.ed_pass);
+
         btn_acceso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +54,13 @@ public class Login extends AppCompatActivity {
 
     }
 
+    public void registro(View view){
+        btn_acceso = findViewById(R.id.btn_acceso);
+        Intent t = new Intent(this,Registro.class);
+        txt_registro = findViewById(R.id.txt_registro);
+        startActivity(t);
+    }
+
 
     private void loginUsuario(String email, String password){
         mAuth.signInWithEmailAndPassword(email, password)
@@ -58,14 +68,13 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Intent d = new Intent(getApplicationContext(), pantalla_principal.class);
+                            startActivity(d);
+
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(Login.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast toast = Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT);
+                            toast.show();
 
                         }
 

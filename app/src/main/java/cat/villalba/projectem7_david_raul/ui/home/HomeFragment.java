@@ -54,6 +54,7 @@ public class HomeFragment extends Fragment {
         mPeliculas = new ArrayList<>();
 
         mAdapter = new adaptadorPelis(getContext(), mPeliculas);
+
         mRecyclerView.setAdapter(mAdapter);
 
         initializeData();
