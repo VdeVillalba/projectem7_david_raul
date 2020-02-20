@@ -6,77 +6,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".VotarActivity">
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="111dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_agrado">
-
-        <RadioButton
-            android:id="@+id/rb_nada"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/rb1" />
-
-        <RadioButton
-            android:id="@+id/rb_poco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/rb2" />
-
-        <RadioButton
-            android:id="@+id/rb_bien"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/rb3" />
-
-        <RadioButton
-            android:id="@+id/rb_mucho"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/rb4" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/txt_agrado"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="160dp"
-        android:text="@string/pregunta_valoracion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="¿Cuánto te ha gustado la película?" />
 
     <TextView
         android:id="@+id/txt_puntuacion"
         android:layout_width="163dp"
         android:layout_height="23dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
         android:text="@string/pregunta_1a10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <SeekBar
-        android:id="@+id/sb_notas"
-        android:layout_width="220dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@android:color/black"
-        android:indeterminate="false"
-        android:max="10"
-        android:progress="5"
-        android:progressTint="@android:color/white"
-        android:thumbTint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/estrelles"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_puntuacion" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
+
+    <RatingBar
+        android:id="@+id/estrelles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

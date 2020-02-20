@@ -17,7 +17,7 @@
     <string name="img_inici">Imatge càmara retro</string>
     <string name="repetir_Contrase_a">Repeteix contrasenya</string>
     <string name="pregunta_valoracion">Quan t\'ha agradat la pelicula?</string>
-    <string name="pregunta_1a10">Puntuació de l\'1 al 10:</string>
+    <string name="pregunta_1a10">Puntuació:</string>
     <string name="nombre">Nom:</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
