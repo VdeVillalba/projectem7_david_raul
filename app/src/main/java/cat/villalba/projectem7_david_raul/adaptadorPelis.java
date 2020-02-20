@@ -20,7 +20,7 @@ public class adaptadorPelis extends RecyclerView.Adapter<adaptadorPelis.ViewHold
     private ArrayList<Peli> mPeliculas;
     private Context mContext;
 
-    adaptadorPelis(Context context, ArrayList<Peli> peliculas) {
+    public adaptadorPelis(Context context, ArrayList<Peli> peliculas) {
         this.mPeliculas = peliculas;
         this.mContext = context;
     }
@@ -62,7 +62,6 @@ public class adaptadorPelis extends RecyclerView.Adapter<adaptadorPelis.ViewHold
 
         void bindTo(Peli peliActual) {
             mTitulo.setText(peliActual.getTitulo());
-            mInfo.setText(peliActual.getInfo());
             mDirector.setText(peliActual.getDirector());
             Glide.with(mContext).load(peliActual.getImageResource()).into(mPeliImagen);
         }

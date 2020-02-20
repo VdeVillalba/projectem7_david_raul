@@ -64,7 +64,7 @@ public class pantalla_principal extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        /*mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
 
         mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
 
@@ -92,14 +92,14 @@ public class pantalla_principal extends AppCompatActivity {
                 mPeliculas.remove(viewHolder.getAdapterPosition());
                 mAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
 
-            }
-        });
+            }*/
+        //});
 
-        helper.attachToRecyclerView(mRecyclerView);
+        //helper.attachToRecyclerView(mRecyclerView);
 
     }
 
-    private void initializeData() {
+   /* private void initializeData() {
 
         String[] listaPelis = getResources().getStringArray(R.array.pelis_titulos);
         String[] listaInfo = getResources().getStringArray(R.array.pelis_info);
@@ -119,7 +119,7 @@ public class pantalla_principal extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
 
 
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -135,7 +135,7 @@ public class pantalla_principal extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void resetPelis(View view) {
+    /*public void resetPelis(View view) {
         initializeData();
-    }
+    }*/
 }
