@@ -1,28 +1,51 @@
 package cat.villalba.projectem7_david_raul;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Registro extends AppCompatActivity {
-    private EditText usuario;
+
+    private static final String TAG = "Registro" ;
+    private FirebaseAuth mAuth;
+
+    private EditText correo;
     private EditText pass1;
     private EditText pass2;
 
-    SharedPreferences pref;
+    Button btnRegistro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla_registro);
-        usuario = findViewById(R.id.etApodo);
+        mAuth = FirebaseAuth.getInstance();
+        correo = findViewById(R.id.etApodo);
         pass1 = findViewById(R.id.etContraseña1);
         pass2 = findViewById(R.id.etContraseña2);
+
+        btnRegistro = findViewById(R.id.btnRegisrarse);
+
+        btnRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                creaUsuario(correo.getText().toString(), pass1.getText().toString());
+            }
+        });
 
     }
 
@@ -40,27 +63,40 @@ public class Registro extends AppCompatActivity {
     }
 
     public void registrarUsuario(View view){
-        String apodo = usuario.getText().toString();
+        String mail = correo.getText().toString();
         String contra = pass1.getText().toString();
 
-        pref = getSharedPreferences("Usuario y contraseña", MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-
-        Intent intent = new Intent(this, Login.class);
-
         if((comprobarContrasena(pass1, pass2) == true)){
-            editor.putString("usuario", apodo);
-            editor.putString("contraseña", contra);
-            editor.apply();
-            editor.commit();
-            Toast toast = Toast.makeText(this, "Usuario creado correctamente", Toast.LENGTH_SHORT);
-            toast.show();
-            startActivity(intent);
+            creaUsuario(mail, contra);
         }else{
             Toast toast = Toast.makeText(this, "Error; Contraseña incorrecta", Toast.LENGTH_SHORT);
             toast.show();
         }
     }
+
+    private void creaUsuario(String email, String password){
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(Registro.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });
+    }
+
 
     public void volver(View view){
         Intent intent = new Intent(this, Login.class);

@@ -1,57 +1,77 @@
 package cat.villalba.projectem7_david_raul;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.w3c.dom.Text;
+
 public class Login extends AppCompatActivity {
 
-    private TextView mRegistro;
-    private EditText mUser, mPass;
-    Boolean correcto = false;
+    private static final String TAG = "MainActivity" ;
+
+    private FirebaseAuth mAuth;
+
+    Button btn_acceso;
+    TextView txt_registro;
+    EditText edUser, ed_pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mRegistro = findViewById(R.id.txt_registro);
-        mUser = findViewById(R.id.ed_user);
-        mPass = findViewById(R.id.ed_pass);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        btn_acceso = findViewById(R.id.btn_acceso);
+        txt_registro = findViewById(R.id.txt_registro);
+
+        btn_acceso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUsuario(edUser.getText().toString(), ed_pass.getText().toString());
+                btn_acceso.setEnabled(false);
+            }
+        });
 
     }
 
-    public void registro(View view){
-        Intent t = new Intent(this,Registro.class);
-        startActivity(t);
+
+    private void loginUsuario(String email, String password){
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(Login.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+
+                        }
+
+                        // ...
+                    }
+                });
     }
 
-    public void enter(View view) {
-       compruebaCredenciales();
-        if(correcto == true) {
-            Intent d = new Intent(this, pantalla_principal.class);
-            startActivity(d);
-        } else {
-            Toast toast = Toast.makeText(this, "Usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-    }
-
-    public void compruebaCredenciales() {
-
-        SharedPreferences pref = getSharedPreferences("Usuario y contraseña", MODE_PRIVATE);
-        String usuario = pref.getString("usuario","Error, no existe.");
-        String pass = pref.getString("contraseña","Error, no existe.");
-        if(mUser.getText().toString().equals(usuario) && mPass.getText().toString().equals(pass)) {
-            correcto = true;
-        } else {
-            correcto = false;
-        }
-
-    }
 }
