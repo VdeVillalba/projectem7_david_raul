@@ -1,41 +1,39 @@
 package cat.villalba.projectem7_david_raul;
 
-import android.content.res.TypedArray;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.util.DisplayMetrics;
+import android.view.MenuItem;
 import android.view.View;
-
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.google.android.material.navigation.NavigationView;
-
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.Menu;
-
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Locale;
 
-public class pantalla_principal extends AppCompatActivity {
+
+public class pantalla_principal extends BaseActivity {
+
 
     private AppBarConfiguration mAppBarConfiguration;
     private RecyclerView mRecyclerView;
     private ArrayList<Peli> mPeliculas;
     private adaptadorPelis mAdapter;
+    private Locale myLocale;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,39 +61,6 @@ public class pantalla_principal extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        /*mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
-
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
-
-        mPeliculas = new ArrayList<>();
-
-        mAdapter = new adaptadorPelis(this,mPeliculas);
-        mRecyclerView.setAdapter(mAdapter);
-
-        initializeData();
-
-        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT |
-                ItemTouchHelper.DOWN | ItemTouchHelper.UP,
-                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                int from = viewHolder.getAdapterPosition();
-                int to = target.getAdapterPosition();
-                Collections.swap(mPeliculas, from, to);
-                mAdapter.notifyItemMoved(from, to);
-                return true;
-            }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                mPeliculas.remove(viewHolder.getAdapterPosition());
-                mAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
-
-            }*/
-        //});
-
-        //helper.attachToRecyclerView(mRecyclerView);
 
     }
 
@@ -125,7 +90,31 @@ public class pantalla_principal extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.pantalla_principal, menu);
+
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle options menu item clicks here.
+        switch (item.getItemId()) {
+            case R.id.catala:
+                setNewLocale(this,LocaleManager.CATALAN);
+                return true;
+
+            case R.id.espanyol:
+                setNewLocale(this,LocaleManager.SPANISH);
+                return true;
+
+            case R.id.angles:
+                setNewLocale(this,LocaleManager.ENGLISH);
+                return true;
+
+            default:
+                // Do nothing
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -135,6 +124,22 @@ public class pantalla_principal extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleManager.setLocale(base));
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LocaleManager.setLocale(this);
+    }
+
+    private void setNewLocale(AppCompatActivity mContext, @LocaleManager.LocaleDef String language) {
+        LocaleManager.setNewLocale(this, language);
+        Intent intent = mContext.getIntent();
+        startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+    }
     /*public void resetPelis(View view) {
         initializeData();
     }*/

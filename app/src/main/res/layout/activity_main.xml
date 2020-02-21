@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="63dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/til_resenya"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent">
@@ -26,12 +26,12 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <Button
         android:id="@+id/btn_acceso"
         style="@style/Style.Button"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:onClick="enter"
         android:text="@string/btn_acceso"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +68,7 @@
         app:layout_constraintVertical_bias="0.908" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/til_resenya"
         style="@style/Pelis"
         android:layout_width="311dp"
         android:layout_height="wrap_content"
@@ -79,10 +79,10 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_pass"
+            android:id="@+id/ed_resenya"
             android:layout_width="311dp"
             android:layout_height="wrap_content"
-            android:labelFor="@id/ed_pass"
+            android:labelFor="@id/ed_resenya"
             android:hint="@string/contrase_a"
             android:inputType="textPersonName|textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -94,7 +94,7 @@
         android:layout_marginTop="64dp"
         android:layout_marginBottom="127dp"
         android:contentDescription="@string/img_inici"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintBottom_toTopOf="@+id/til_resenya"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

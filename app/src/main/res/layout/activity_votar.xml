@@ -7,29 +7,62 @@
     tools:context=".VotarActivity">
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_resenya"
+        style="@style/Pelis"
+        android:layout_width="311dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_resenya"
+            android:layout_width="match_parent"
+            android:layout_height="201dp"
+            android:hint="@string/quadre_resenya"
+            android:labelFor="@id/ed_resenya" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+
+        android:id="@+id/peliResenya"
+        android:layout_width="148dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="52dp"
+        android:contentDescription="@+id/peliResenya"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.015" />
+
     <TextView
         android:id="@+id/txt_puntuacion"
         android:layout_width="163dp"
         android:layout_height="23dp"
         android:text="@string/pregunta_1a10"
-        app:layout_constraintBottom_toTopOf="@+id/estrelles"
+        app:layout_constraintBottom_toTopOf="@+id/estrelles_genere"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754" />
+        app:layout_constraintVertical_bias="0.935" />
 
     <RatingBar
-        android:id="@+id/estrelles"
+        android:id="@+id/estrelles_genere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="1.0"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/til_resenya"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintVertical_bias="0.834" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

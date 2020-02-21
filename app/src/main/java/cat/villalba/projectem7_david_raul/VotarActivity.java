@@ -1,5 +1,8 @@
 package cat.villalba.projectem7_david_raul;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
@@ -7,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class VotarActivity extends AppCompatActivity {
+public class VotarActivity extends BaseActivity {
 
     private RatingBar estrelles;
 
@@ -37,5 +40,6 @@ public class VotarActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
     }
+
 
 }

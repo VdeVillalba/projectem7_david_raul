@@ -4,9 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,8 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import org.w3c.dom.Text;
 
 public class Login extends AppCompatActivity {
 
@@ -42,12 +38,12 @@ public class Login extends AppCompatActivity {
         txt_registro = findViewById(R.id.txt_registro);
 
         edUser = findViewById(R.id.ed_user);
-        ed_pass = findViewById(R.id.ed_pass);
+        ed_pass = findViewById(R.id.ed_resenya);
 
         btn_acceso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUsuario(edUser.getText().toString(), ed_pass.getText().toString());
+                enter(edUser.getText().toString(), ed_pass.getText().toString());
                 btn_acceso.setEnabled(false);
             }
         });
@@ -62,7 +58,8 @@ public class Login extends AppCompatActivity {
     }
 
 
-    private void loginUsuario(String email, String password){
+    private void enter(String email, String password){
+        btn_acceso.setEnabled(false);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -71,10 +68,12 @@ public class Login extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent d = new Intent(getApplicationContext(), pantalla_principal.class);
                             startActivity(d);
+                            finish();
 
                         } else {
                             Toast toast = Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT);
                             toast.show();
+                            btn_acceso.setEnabled(true);
 
                         }
 
