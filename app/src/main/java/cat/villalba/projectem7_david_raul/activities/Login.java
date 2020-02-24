@@ -1,4 +1,4 @@
-package cat.villalba.projectem7_david_raul;
+package cat.villalba.projectem7_david_raul.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,11 +17,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import cat.villalba.projectem7_david_raul.R;
+
 public class Login extends AppCompatActivity {
 
     private static final String TAG = "MainActivity" ;
 
     private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
     Button btn_acceso;
     TextView txt_registro;
@@ -33,6 +36,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
 
         btn_acceso = findViewById(R.id.btn_acceso);
         txt_registro = findViewById(R.id.txt_registro);
@@ -47,6 +51,12 @@ public class Login extends AppCompatActivity {
                 btn_acceso.setEnabled(false);
             }
         });
+
+        if (mUser != null) {
+            Intent d = new Intent(getApplicationContext(), pantalla_principal.class);
+            startActivity(d);
+            finish();
+        }
 
     }
 
@@ -71,7 +81,7 @@ public class Login extends AppCompatActivity {
                             finish();
 
                         } else {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(), "Usuari o contrasenya incorrecta", Toast.LENGTH_SHORT);
                             toast.show();
                             btn_acceso.setEnabled(true);
 

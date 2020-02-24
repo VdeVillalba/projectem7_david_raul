@@ -38,6 +38,7 @@
     <string name="es">Espanyol</string>
     <string name="en">Anglès</string>
     <string name="quadre_resenya">Resenya</string>
+    <string name="Menu_Logout">Desconnectar</string>
 
     <string-array name="pelis_titulos">
         <item>Robocop</item>
@@ -79,5 +80,9 @@
         <item>@drawable/watchmen</item>
     </array>
     <string name="introduce_tu_apodo">Introdueix adreça electrònica</string>
+    <string name="compte">Compte</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

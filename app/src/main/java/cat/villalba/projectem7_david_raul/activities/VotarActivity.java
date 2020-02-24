@@ -1,14 +1,11 @@
-package cat.villalba.projectem7_david_raul;
+package cat.villalba.projectem7_david_raul.activities;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.RatingBar;
-import android.widget.SeekBar;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import cat.villalba.projectem7_david_raul.adapters.BaseActivity;
+import cat.villalba.projectem7_david_raul.R;
 
 public class VotarActivity extends BaseActivity {
 

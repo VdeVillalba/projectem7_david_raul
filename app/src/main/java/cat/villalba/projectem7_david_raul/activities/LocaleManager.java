@@ -1,4 +1,4 @@
-package cat.villalba.projectem7_david_raul;
+package cat.villalba.projectem7_david_raul.activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;

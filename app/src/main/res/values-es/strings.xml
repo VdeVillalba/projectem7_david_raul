@@ -42,4 +42,6 @@
     <string name="en">Inglés</string>
     <string name="es">Español</string>
     <string name="quadre_resenya">Reseña</string>
+    <string name="compte">Cuenta</string>
+    <string name="Menu_Logout">Desconectar</string>
 </resources>

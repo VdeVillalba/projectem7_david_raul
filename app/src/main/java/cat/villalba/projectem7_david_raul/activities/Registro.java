@@ -1,4 +1,4 @@
-package cat.villalba.projectem7_david_raul;
+package cat.villalba.projectem7_david_raul.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import cat.villalba.projectem7_david_raul.R;
 
 public class Registro extends AppCompatActivity {
 
@@ -48,30 +50,48 @@ public class Registro extends AppCompatActivity {
 
     }
 
-    public boolean comprobarContrasena(EditText pass1, EditText pass2){
+    public int comprobarContrasena(EditText pass1, EditText pass2) {
         String part1 = pass1.getText().toString();
         String part2 = pass2.getText().toString();
-        boolean resultado;
 
-        if(part1.equals(part2) && (!part1.isEmpty()) && (!part2.isEmpty())){
-            resultado = true;
-        }else{
-            resultado = false;
+        if (part1.length() < 6 || part2.length() < 6) {
+            return 1;
+        } else if (part1.equals(part2) && (!part1.isEmpty()) && (!part2.isEmpty())) {
+            return 2;
+        } else if (part1.isEmpty() || part2.isEmpty()) {
+            return 3;
+        } else {
+            return 4;
         }
-        return resultado;
     }
 
-    public void registrarUsuario(View view){
+    public void registrarUsuario(View view) {
         String mail = correo.getText().toString();
         String contra = pass1.getText().toString();
+        Toast toast;
+        switch (comprobarContrasena(pass1, pass2)) {
+            case 1:
+                toast = Toast.makeText(this, "La contrasenya ha de tenir 6 o més caràcters", Toast.LENGTH_SHORT);
+                toast.show();
 
-        if((comprobarContrasena(pass1, pass2) == true)){
-            creaUsuario(mail, contra);
-        }else{
-            Toast toast = Toast.makeText(this, "Error; Contraseña incorrecta", Toast.LENGTH_SHORT);
-            toast.show();
+            case 2:
+                creaUsuario(mail, contra);
+
+            case 3:
+                toast = Toast.makeText(this, "Error; Contraseña incorrecta", Toast.LENGTH_SHORT);
+                toast.show();
+
+            case 4:
+                toast = Toast.makeText(this, "Les contrasenyes no coincideixen", Toast.LENGTH_SHORT);
+                toast.show();
+
+            default:
+                toast = Toast.makeText(this, "Error inesperat", Toast.LENGTH_SHORT);
+                toast.show();
         }
+
     }
+
 
     private void creaUsuario(String email, String password){
         mAuth.createUserWithEmailAndPassword(email, password)

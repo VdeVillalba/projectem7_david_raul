@@ -1,4 +1,4 @@
-package cat.villalba.projectem7_david_raul;
+package cat.villalba.projectem7_david_raul.adapters;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -6,6 +6,9 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import cat.villalba.projectem7_david_raul.activities.LocaleManager;
+
 import static android.content.pm.PackageManager.GET_META_DATA;
 
 public abstract class BaseActivity extends AppCompatActivity {

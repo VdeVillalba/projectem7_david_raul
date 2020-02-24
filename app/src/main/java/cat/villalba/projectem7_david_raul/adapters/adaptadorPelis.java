@@ -1,4 +1,4 @@
-package cat.villalba.projectem7_david_raul;
+package cat.villalba.projectem7_david_raul.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+
+import cat.villalba.projectem7_david_raul.R;
+import cat.villalba.projectem7_david_raul.activities.VotarActivity;
 
 
 public class adaptadorPelis extends RecyclerView.Adapter<adaptadorPelis.ViewHolder> {

@@ -40,4 +40,6 @@
     <string name="en">English</string>
     <string name="es">Spanish</string>
     <string name="quadre_resenya">Review</string>
+    <string name="compte">Account</string>
+    <string name="Menu_Logout">Logout</string>
 </resources>

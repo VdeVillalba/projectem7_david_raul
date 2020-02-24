@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-import cat.villalba.projectem7_david_raul.Peli;
+import cat.villalba.projectem7_david_raul.adapters.Peli;
 import cat.villalba.projectem7_david_raul.R;
-import cat.villalba.projectem7_david_raul.adaptadorPelis;
+import cat.villalba.projectem7_david_raul.adapters.adaptadorPelis;
 
 
 public class HomeFragment extends Fragment {
