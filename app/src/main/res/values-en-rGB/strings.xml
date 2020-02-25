@@ -42,4 +42,5 @@
     <string name="quadre_resenya">Review</string>
     <string name="compte">Account</string>
     <string name="Menu_Logout">Logout</string>
+    <string name="hint_missatge">Type a message...</string>
 </resources>

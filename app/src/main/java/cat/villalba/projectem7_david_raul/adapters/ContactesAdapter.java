@@ -45,6 +45,8 @@ public class ContactesAdapter extends RecyclerView.Adapter<ContactesAdapter.View
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Mensajeria.class);
+
+                //MIRAR ESTO PAL PORSI, HE PUESTO GETNOM ANTES ERA GETID
                 intent.putExtra("Usuari", contacte.getId());
                 mContext.startActivity(intent);
             }

@@ -44,4 +44,5 @@
     <string name="quadre_resenya">Reseña</string>
     <string name="compte">Cuenta</string>
     <string name="Menu_Logout">Desconectar</string>
+    <string name="hint_missatge">Escribe un mensaje...</string>
 </resources>

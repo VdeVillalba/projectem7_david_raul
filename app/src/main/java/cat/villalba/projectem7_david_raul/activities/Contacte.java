@@ -4,13 +4,23 @@ public class Contacte {
 
     private String id;
     private String imageURL;
+    private String nomContacte;
 
-    public Contacte(String id, String imageURL) {
+    public Contacte(String id, String nomContacte, String imageURL) {
         this.id = id;
         this.imageURL = imageURL;
+        this.nomContacte = nomContacte;
     }
 
     public Contacte() {}
+
+    public String getNomContacte() {
+        return nomContacte;
+    }
+
+    public void setNomContacte(String nomContacte) {
+        this.nomContacte = nomContacte;
+    }
 
     public String getImageURL() {
         return imageURL;

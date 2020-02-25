@@ -16,6 +16,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 import cat.villalba.projectem7_david_raul.R;
 
@@ -23,6 +27,7 @@ public class Registro extends AppCompatActivity {
 
     private static final String TAG = "Registro" ;
     private FirebaseAuth mAuth;
+    private DatabaseReference reference;
 
     private EditText correo;
     private EditText pass1;
@@ -44,7 +49,7 @@ public class Registro extends AppCompatActivity {
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                creaUsuario(correo.getText().toString(), pass1.getText().toString());
+                registrarUsuario();
             }
         });
 
@@ -65,49 +70,63 @@ public class Registro extends AppCompatActivity {
         }
     }
 
-    public void registrarUsuario(View view) {
+    public void registrarUsuario() {
         String mail = correo.getText().toString();
         String contra = pass1.getText().toString();
-        Toast toast;
         switch (comprobarContrasena(pass1, pass2)) {
             case 1:
-                toast = Toast.makeText(this, "La contrasenya ha de tenir 6 o més caràcters", Toast.LENGTH_SHORT);
-                toast.show();
-
+                Toast.makeText(Registro.this, "La contrasenya ha de tenir 6 o més caràcters", Toast.LENGTH_SHORT).show();
+                break;
             case 2:
                 creaUsuario(mail, contra);
-
+                break;
             case 3:
-                toast = Toast.makeText(this, "Error; Contraseña incorrecta", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(Registro.this, "Error, algún dels camps és buit", Toast.LENGTH_SHORT).show();
+                break;
 
             case 4:
-                toast = Toast.makeText(this, "Les contrasenyes no coincideixen", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(Registro.this, "Les contrasenyes no coincideixen", Toast.LENGTH_SHORT).show();
+                break;
 
             default:
-                toast = Toast.makeText(this, "Error inesperat", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(Registro.this, "Error inesperat", Toast.LENGTH_SHORT).show();
         }
 
     }
 
 
-    private void creaUsuario(String email, String password){
+    private void creaUsuario(final String email, String password){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            assert user != null;
+                            String userId = user.getUid();
 
+                            reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
+
+                            HashMap<String, String> hashMap = new HashMap<>();
+                            hashMap.put("id", userId);
+                            hashMap.put("nomContacte", email);
+                            hashMap.put("imageURL", "default");
+
+                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Intent intent = new Intent(Registro.this, Login.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+                            });
 
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(Registro.this, "Authentication failed.",
+
+                            Toast.makeText(Registro.this, "Registre erroni.",
                                     Toast.LENGTH_SHORT).show();
                         }
 

@@ -39,6 +39,7 @@
     <string name="en">Anglès</string>
     <string name="quadre_resenya">Resenya</string>
     <string name="Menu_Logout">Desconnectar</string>
+    <string name="hint_missatge">Escriu un missatge...</string>
 
     <string-array name="pelis_titulos">
         <item>Robocop</item>
