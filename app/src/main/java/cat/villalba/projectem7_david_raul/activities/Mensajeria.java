@@ -3,10 +3,13 @@ package cat.villalba.projectem7_david_raul.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -24,9 +27,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import cat.villalba.projectem7_david_raul.R;
+import cat.villalba.projectem7_david_raul.adapters.Missatge;
+import cat.villalba.projectem7_david_raul.adapters.MissatgesAdapters;
 
 public class Mensajeria extends AppCompatActivity {
 
@@ -38,6 +46,11 @@ public class Mensajeria extends AppCompatActivity {
 
     ImageButton btn_envia;
     EditText text_mensaje;
+
+    MissatgesAdapters missatgesAdapters;
+    List<Missatge> mMissatge;
+
+    RecyclerView recyclerView;
 
     Intent intent;
 
@@ -61,6 +74,13 @@ public class Mensajeria extends AppCompatActivity {
         text_mensaje = findViewById(R.id.ed_mensaje);
         profile_image = findViewById(R.id.profile_image);
         nomUsuari = findViewById(R.id.contacte);
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
 
         intent = getIntent();
         final String idUsuari = intent.getStringExtra("Usuari");
@@ -91,6 +111,8 @@ public class Mensajeria extends AppCompatActivity {
                 } else {
                     Glide.with(Mensajeria.this).load(contacte.getImageURL()).into(profile_image);
                 }
+
+                llegirMissatges(firebaseUseruser.getUid(), idUsuari, contacte.getImageURL());
             }
 
             @Override
@@ -111,5 +133,32 @@ public class Mensajeria extends AppCompatActivity {
 
         reference.child("Xats").push().setValue(hashMap);
 
+    }
+
+    private void llegirMissatges(final String usuari, final String contacte, final String imageURL) {
+        mMissatge = new ArrayList<>();
+
+        reference = FirebaseDatabase.getInstance().getReference("Xats");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mMissatge.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    Missatge missatge = snapshot.getValue(Missatge.class);
+                    if (missatge.getReceptor().equals(usuari) && missatge.getReceptor().equals(contacte) ||
+                            missatge.getReceptor().equals(contacte) && missatge.getRemitent().equals(usuari)) {
+                        mMissatge.add(missatge);
+                    }
+
+                    missatgesAdapters = new MissatgesAdapters(Mensajeria.this, mMissatge, imageURL);
+                    recyclerView.setAdapter(missatgesAdapters);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
