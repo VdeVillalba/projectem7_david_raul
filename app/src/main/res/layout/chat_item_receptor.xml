@@ -2,27 +2,19 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
+    android:padding="8dp"
     android:layout_height="wrap_content">
-
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/profile_image"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="5dp"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_receptor"
-        android:layout_toRightOf="@+id/profile_image"
         android:layout_marginLeft="5dp"
         android:padding="8dp"
-        android:layout_marginTop="8dp"
+
         android:text="HOLA"
         android:textColor="@android:color/black"
         android:id="@+id/mostra_missatge"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:layout_alignParentLeft="true" />
 
 </RelativeLayout>

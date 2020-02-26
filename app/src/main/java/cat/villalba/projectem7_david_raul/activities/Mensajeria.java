@@ -7,9 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -27,12 +25,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import cat.villalba.projectem7_david_raul.R;
+import cat.villalba.projectem7_david_raul.adapters.Contacte;
 import cat.villalba.projectem7_david_raul.adapters.Missatge;
 import cat.villalba.projectem7_david_raul.adapters.MissatgesAdapters;
 
@@ -94,7 +92,7 @@ public class Mensajeria extends AppCompatActivity {
                     enviaMensaje(firebaseUseruser.getUid(), idUsuari, msg);
                     text_mensaje.setText("");
                 } else {
-                    Toast.makeText(Mensajeria.this,"No pots enviar missatges buits", Toast.LENGTH_SHORT);
+                    Toast.makeText(Mensajeria.this,"No pots enviar missatges buits", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -137,7 +135,6 @@ public class Mensajeria extends AppCompatActivity {
 
     private void llegirMissatges(final String usuari, final String contacte, final String imageURL) {
         mMissatge = new ArrayList<>();
-
         reference = FirebaseDatabase.getInstance().getReference("Xats");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -145,12 +142,12 @@ public class Mensajeria extends AppCompatActivity {
                 mMissatge.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Missatge missatge = snapshot.getValue(Missatge.class);
-                    if (missatge.getReceptor().equals(usuari) && missatge.getReceptor().equals(contacte) ||
-                            missatge.getReceptor().equals(contacte) && missatge.getRemitent().equals(usuari)) {
+                    if (missatge.getDestinatari().equals(usuari) && missatge.getRemitent().equals(contacte) ||
+                            missatge.getDestinatari().equals(contacte) && missatge.getRemitent().equals(usuari)) {
                         mMissatge.add(missatge);
                     }
 
-                    missatgesAdapters = new MissatgesAdapters(Mensajeria.this, mMissatge, imageURL);
+                    missatgesAdapters = new MissatgesAdapters(Mensajeria.this, mMissatge);
                     recyclerView.setAdapter(missatgesAdapters);
                 }
             }

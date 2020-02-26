@@ -3,12 +3,12 @@ package cat.villalba.projectem7_david_raul.adapters;
 public class Missatge {
 
     private String remitent;
-    private String receptor;
+    private String destinatari;
     private String missatge;
 
-    public Missatge(String remitent, String receptor, String missatge) {
+    public Missatge(String remitent, String destinatari, String missatge) {
         this.remitent = remitent;
-        this.receptor = receptor;
+        this.destinatari = destinatari;
         this.missatge = missatge;
     }
 
@@ -23,12 +23,12 @@ public class Missatge {
         this.remitent = remitent;
     }
 
-    public String getReceptor() {
-        return receptor;
+    public String getDestinatari() {
+        return destinatari;
     }
 
-    public void setReceptor(String receptor) {
-        this.receptor = receptor;
+    public void setDestinatari(String receptor) {
+        this.destinatari = receptor;
     }
 
     public String getMissatge() {

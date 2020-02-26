@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cat.villalba.projectem7_david_raul.R;
-import cat.villalba.projectem7_david_raul.activities.Contacte;
+import cat.villalba.projectem7_david_raul.adapters.Contacte;
 import cat.villalba.projectem7_david_raul.adapters.ContactesAdapter;
 
 public class usersFragment extends Fragment {

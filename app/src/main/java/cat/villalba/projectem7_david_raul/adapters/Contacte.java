@@ -1,4 +1,4 @@
-package cat.villalba.projectem7_david_raul.activities;
+package cat.villalba.projectem7_david_raul.adapters;
 
 public class Contacte {
 

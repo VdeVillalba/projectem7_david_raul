@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import cat.villalba.projectem7_david_raul.R;
-import cat.villalba.projectem7_david_raul.activities.Contacte;
 import cat.villalba.projectem7_david_raul.activities.Mensajeria;
 
 public class ContactesAdapter extends RecyclerView.Adapter<ContactesAdapter.ViewHolder> {
@@ -38,7 +37,7 @@ public class ContactesAdapter extends RecyclerView.Adapter<ContactesAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Contacte contacte = mUsers.get(position);
-        holder.nomContacte.setText(contacte.getId());
+        holder.nomContacte.setText(contacte.getNomContacte());
         //Aqui iria si quiero crear una imagen de perfil
         holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +45,6 @@ public class ContactesAdapter extends RecyclerView.Adapter<ContactesAdapter.View
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Mensajeria.class);
 
-                //MIRAR ESTO PAL PORSI, HE PUESTO GETNOM ANTES ERA GETID
                 intent.putExtra("Usuari", contacte.getId());
                 mContext.startActivity(intent);
             }
