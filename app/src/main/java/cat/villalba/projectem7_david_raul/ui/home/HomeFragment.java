@@ -25,17 +25,13 @@ import cat.villalba.projectem7_david_raul.adapters.adaptadorPelis;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
-    private AppBarConfiguration mAppBarConfiguration;
     private RecyclerView mRecyclerView;
     private ArrayList<Peli> mPeliculas;
     private adaptadorPelis mAdapter;
-    private Context mContext;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
