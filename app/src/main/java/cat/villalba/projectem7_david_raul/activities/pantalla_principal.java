@@ -84,15 +84,30 @@ public class pantalla_principal extends BaseActivity {
         // Handle options menu item clicks here.
         switch (item.getItemId()) {
             case R.id.catala:
-                setNewLocale(this,LocaleManager.CATALAN);
+                Locale localizacion = new Locale("ca", "CAT");
+
+                Locale.setDefault(localizacion);
+                Configuration config = new Configuration();
+                config.locale = localizacion;
+                getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
                 return true;
 
             case R.id.espanyol:
-                setNewLocale(this,LocaleManager.SPANISH);
+                Locale localizacion2 = new Locale("es", "SPA");
+
+                Locale.setDefault(localizacion2);
+                Configuration config2 = new Configuration();
+                config2.locale = localizacion2;
+                getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
                 return true;
 
             case R.id.angles:
-                setNewLocale(this,LocaleManager.ENGLISH);
+                Locale localizacion3 = new Locale("en", "GB");
+
+                Locale.setDefault(localizacion3);
+                Configuration config3 = new Configuration();
+                config3.locale = localizacion3;
+                getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
                 return true;
 
             default:
