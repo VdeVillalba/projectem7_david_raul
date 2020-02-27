@@ -1,192 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.VotarActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="231dp"
-        android:layout_height="118dp"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/txt_puntuacion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toEndOf="@+id/peliResenya"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715" >
-
-        <TextView
-            android:id="@+id/sinopsi"
+        <RelativeLayout
+            android:id="@+id/grupo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8sp"
-            android:text="SINOPSI" />
-    </RelativeLayout>
+            android:layout_height="wrap_content">
 
-    <RatingBar
-        android:id="@+id/estrelles_cultural"
-        android:layout_width="238dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="48dp"
-        android:numStars="100"
-        android:stepSize="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_puntuacion2" />
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="200dp"
+                android:layout_height="118dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginStart="140dp"
+                android:background="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="148dp"
+                tools:layout_editor_absoluteY="51dp">
 
-    <RatingBar
-        android:id="@+id/estrelles_funcional"
-        android:layout_width="238dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="48dp"
-        android:numStars="100"
-        android:stepSize="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_puntuacion3" />
+                <TextView
+                    android:id="@+id/sinopsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8sp"
+                    android:text="SINOPSI" />
+            </RelativeLayout>
 
-    <TextView
-        android:id="@+id/txt_puntuacion2"
-        android:layout_width="163dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="48dp"
-        android:text="@string/votacio_cultural"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estrelles_genere" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_resenya"
+                style="@style/Pelis"
+                android:layout_width="326dp"
+                android:layout_height="132dp"
+                android:layout_below="@id/estrelles_lgtbi"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="497dp">
 
-    <TextView
-        android:id="@+id/txt_puntuacion3"
-        android:layout_width="163dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="48dp"
-        android:text="@string/votacio_diversitat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estrelles_cultural" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_resenya"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/quadre_resenya"
+                    android:labelFor="@id/ed_resenya" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/txt_puntuacion4"
-        android:layout_width="163dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="48dp"
-        android:text="@string/votacio_lgtbi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estrelles_funcional" />
+            <ImageView
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_resenya"
-        style="@style/Pelis"
-        android:layout_width="326dp"
-        android:layout_height="132dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estrelles_lgtbi"
-        app:layout_constraintVertical_bias="0.159">
+                android:id="@+id/peliResenya"
+                android:layout_width="85dp"
+                android:layout_height="120dp"
+                android:contentDescription="@+id/peliResenya"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="70dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="44dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_resenya"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/quadre_resenya"
-            android:labelFor="@id/ed_resenya" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/txt_puntuacion"
+                android:layout_width="163dp"
+                android:layout_height="23dp"
+                android:layout_below="@+id/peliResenya"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:text="@string/votacio_consciencia"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="189dp" />
 
-    <ImageView
 
-        android:id="@+id/peliResenya"
-        android:layout_width="85dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="68dp"
-        android:contentDescription="@+id/peliResenya"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/txt_puntuacion2"
+                android:layout_width="163dp"
+                android:layout_height="23dp"
+                android:layout_below="@id/estrelles_genere"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:text="@string/votacio_cultural"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="259dp" />
 
-    <TextView
-        android:id="@+id/txt_puntuacion"
-        android:layout_width="163dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/votacio_consciencia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/peliResenya" />
+            <TextView
+                android:id="@+id/txt_puntuacion3"
+                android:layout_width="163dp"
+                android:layout_height="23dp"
+                android:layout_below="@id/estrelles_cultural"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:text="@string/votacio_diversitat"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="328dp" />
 
-    <RatingBar
-        android:id="@+id/estrelles_genere"
-        android:layout_width="242dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="48dp"
-        android:numStars="100"
-        android:stepSize="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_puntuacion" />
+            <TextView
+                android:id="@+id/txt_puntuacion4"
+                android:layout_width="163dp"
+                android:layout_height="23dp"
+                android:layout_below="@id/estrelles_funcional"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:text="@string/votacio_lgtbi"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="397dp" />
 
-    <RatingBar
-        android:id="@+id/estrelles_lgtbi"
-        android:layout_width="242dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="48dp"
-        android:numStars="100"
-        android:stepSize="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_puntuacion4" />
+            <RatingBar
+                android:id="@+id/estrelles_cultural"
+                android:layout_width="238dp"
+                android:layout_height="46dp"
+                android:layout_below="@+id/txt_puntuacion2"
+                android:layout_marginStart="25dp"
+                android:numStars="5"
+                android:stepSize="1"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="282dp" />
 
-    <TextView
-        android:id="@+id/titol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:text="Títol"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/peliResenya"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755" />
+            <RatingBar
+                android:id="@+id/estrelles_funcional"
+                android:layout_width="238dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="25dp"
+                android:layout_below="@id/txt_puntuacion3"
+                android:numStars="5"
+                android:stepSize="1"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="351dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/btn_envia"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_enrere"
-        app:layout_constraintHorizontal_bias="0.215"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_resenya"
-        app:layout_constraintVertical_bias="0.0" />
+            <RatingBar
+                android:id="@+id/estrelles_genere"
+                android:layout_width="242dp"
+                android:layout_height="47dp"
+                android:numStars="5"
+                android:stepSize="1"
+                android:layout_marginStart="25dp"
+                android:layout_below="@id/txt_puntuacion"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="212dp" />
 
-    <Button
-        android:id="@+id/btn_enrere"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/btn_enrere"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_resenya"
-        app:layout_constraintVertical_bias="0.0" />
+            <RatingBar
+                android:id="@+id/estrelles_lgtbi"
+                android:layout_width="242dp"
+                android:layout_height="47dp"
+                android:numStars="5"
+                android:layout_below="@id/txt_puntuacion4"
+                android:layout_marginStart="25dp"
+                android:stepSize="1"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="420dp" />
 
+            <TextView
+                android:id="@+id/titol"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Títol"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="52dp"
+                tools:layout_editor_absoluteY="12dp" />
+
+            <Button
+                android:id="@+id/btn_enviar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:layout_below="@id/til_resenya"
+                android:text="@string/btn_envia"
+                tools:layout_editor_absoluteX="38dp"
+                tools:layout_editor_absoluteY="645dp" />
+
+            <Button
+                android:id="@+id/btn_enrere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/til_resenya"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="50dp"
+                android:text="@string/btn_enrere"
+                tools:layout_editor_absoluteX="265dp"
+                tools:layout_editor_absoluteY="645dp" />
+
+            <RelativeLayout
+                android:layout_below="@id/btn_enrere"
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
