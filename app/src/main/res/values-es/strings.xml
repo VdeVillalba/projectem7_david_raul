@@ -45,4 +45,11 @@
     <string name="hint_missatge">Escribe un mensaje...</string>
     <string name="menu_usuari">Usuario</string>
     <string name="menu_amics">Amigos</string>
+    <string name="titol_resenya">Reseña</string>
+    <string name="votacio_consciencia">Conciencia de género</string>
+    <string name="votacio_cultural">Diversidad cultural:</string>
+    <string name="votacio_diversitat">Diversidad funcional:</string>
+    <string name="votacio_lgtbi">"LGBTI: "</string>
+    <string name="btn_enrere">Atrás</string>
+    <string name="btn_envia">Envia</string>
 </resources>

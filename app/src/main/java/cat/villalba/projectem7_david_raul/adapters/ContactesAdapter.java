@@ -44,7 +44,6 @@ public class ContactesAdapter extends RecyclerView.Adapter<ContactesAdapter.View
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Mensajeria.class);
-
                 intent.putExtra("Usuari", contacte.getId());
                 mContext.startActivity(intent);
             }

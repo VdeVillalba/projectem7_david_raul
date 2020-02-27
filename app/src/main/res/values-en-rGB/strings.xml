@@ -43,4 +43,11 @@
     <string name="hint_missatge">Type a message...</string>
     <string name="menu_usuari">User</string>
     <string name="menu_amics">Friends</string>
+    <string name="titol_resenya">Review</string>
+    <string name="votacio_consciencia">Gender awareness:</string>
+    <string name="votacio_cultural">Cultural diversity:</string>
+    <string name="votacio_diversitat">Functional diversity:</string>
+    <string name="votacio_lgtbi">"LGBTI: "</string>
+    <string name="btn_enrere">Back</string>
+    <string name="btn_envia">Send</string>
 </resources>

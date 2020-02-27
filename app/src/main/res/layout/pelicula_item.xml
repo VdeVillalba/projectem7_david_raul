@@ -27,29 +27,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Titulo"
+            android:textStyle="bold"
             android:layout_alignBottom="@id/peliImagen"
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
             android:background="#000000"
             />
 
-        <TextView
-            android:id="@+id/Director"
-            style="@style/TextAppearance.AppCompat.Subhead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/director"
-            android:layout_below="@id/peliImagen"
-            android:textColor="?android:textColorSecondary"/>
-
-        <TextView
-            android:id="@+id/argumento"
-            style="@style/TextAppearance.AppCompat.Subhead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/info"
-            android:layout_below="@id/Director"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

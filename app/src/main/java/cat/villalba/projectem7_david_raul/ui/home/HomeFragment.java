@@ -14,9 +14,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Collections;
-
 
 import cat.villalba.projectem7_david_raul.adapters.Peli;
 import cat.villalba.projectem7_david_raul.R;
@@ -35,12 +40,11 @@ public class HomeFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        mRecyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-
+        mRecyclerView = root.findViewById(R.id.recyclerView);
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         mPeliculas = new ArrayList<>();
-
         mAdapter = new adaptadorPelis(getContext(), mPeliculas);
 
         mRecyclerView.setAdapter(mAdapter);
@@ -74,28 +78,34 @@ public class HomeFragment extends Fragment {
     }
 
     private void initializeData() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Pelis");
 
-        String[] listaPelis = getResources().getStringArray(R.array.pelis_titulos);
-        String[] listaDirectores = getResources().getStringArray(R.array.pelis_director);
-        TypedArray pelisRecursosImagenes =
-                getResources().obtainTypedArray(R.array.pelis_images);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mPeliculas.clear();
 
-        mPeliculas.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Peli peli = snapshot.getValue(Peli.class);
 
-        for (int i = 0; i < listaPelis.length; i++) {
-            mPeliculas.add(new Peli(listaPelis[i], pelisRecursosImagenes.getResourceId(i, 0), listaDirectores[i]));
-        }
+                    assert peli != null;
 
-        pelisRecursosImagenes.recycle();
+                    mPeliculas.add(peli);
 
-        mAdapter.notifyDataSetChanged();
+                }
 
+                mAdapter = new adaptadorPelis(getContext(), mPeliculas);
+                mRecyclerView.setAdapter(mAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
-    public void resetPelis(View view) {
-        initializeData();
-    }
 }
 
 
