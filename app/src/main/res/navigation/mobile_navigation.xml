@@ -12,13 +12,13 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_pelis"
         android:name="cat.villalba.projectem7_david_raul.ui.gallery.GalleryFragment"
         android:label="@string/menu_peliculas"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_social"
         android:name="cat.villalba.projectem7_david_raul.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_social"
         tools:layout="@layout/fragment_slideshow" />

@@ -9,11 +9,11 @@
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_pelis"
             android:icon="@drawable/ic_pelis"
             android:title="@string/menu_peliculas" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_social"
             android:icon="@drawable/ic_social"
             android:title="@string/menu_social" />
     </group>
@@ -22,13 +22,11 @@
             <item
                 android:id="@+id/nav_usuario"
                 android:icon="@drawable/ic_usuario"
-                android:title="@string/menu_usuari"
-                android:onClick=""/>
+                android:title="@string/menu_usuari"/>
             <item
                 android:id="@+id/nav_amigos"
                 android:icon="@drawable/ic_addamigo"
-                android:title="@string/menu_amics"
-                android:onClick=""/>
+                android:title="@string/menu_amics"/>
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_logout"
