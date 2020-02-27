@@ -30,7 +30,7 @@ public class adaptadorPelis extends RecyclerView.Adapter<adaptadorPelis.ViewHold
 
     @Override
     public adaptadorPelis.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.pelicula_lista,parent, false));
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.pelicula_item,parent, false));
     }
 
     @Override
@@ -74,10 +74,6 @@ public class adaptadorPelis extends RecyclerView.Adapter<adaptadorPelis.ViewHold
             Peli peliActual = mPeliculas.get(getAdapterPosition());
             Intent pantallaVotar = new Intent(mContext, VotarActivity.class);
             pantallaVotar.putExtra("title", peliActual.getTitulo());
-            /*detailIntent.putExtra("image_resource",
-                    peliActual.getImageResource());
-            detailIntent.putExtra("argumento", peliActual.getResumen());
-            detailIntent.putExtra("Director",peliActual.getDirector());*/
             mContext.startActivity(pantallaVotar);
 
         }
