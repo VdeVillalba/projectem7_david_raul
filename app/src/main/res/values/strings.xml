@@ -20,11 +20,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="menu_tools">Tools</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
+    <string name="menu_social">Social</string>
+    <string name="menu_home">Ses seleccions</string>
+    <string name="menu_peliculas">Pel·licules</string>
     <string name="introduce_tus_apellidos">Introdueix els teus cognoms:</string>
     <string name="introduce_tu_nombre">Introdueix el teu nom</string>
     <string name="introduce_tu_contrase_a">Introdueix la teva contrasenya</string>
@@ -40,6 +38,7 @@
     <string name="quadre_resenya">Resenya</string>
     <string name="Menu_Logout">Desconnectar</string>
     <string name="hint_missatge">Escriu un missatge...</string>
+    <string name="menu_usuari">Usuari</string>
 
     <string-array name="pelis_titulos">
         <item>Robocop</item>
@@ -85,5 +84,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_amics">Amics</string>
 
 </resources>

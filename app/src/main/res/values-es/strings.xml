@@ -26,11 +26,9 @@
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_peliculas">Peliculas</string>
+    <string name="menu_social">Social</string>
     <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
 
     <string name="title_placeholder">Título</string>
     <string name="director">Director</string>
@@ -45,4 +43,6 @@
     <string name="compte">Cuenta</string>
     <string name="Menu_Logout">Desconectar</string>
     <string name="hint_missatge">Escribe un mensaje...</string>
+    <string name="menu_usuari">Usuario</string>
+    <string name="menu_amics">Amigos</string>
 </resources>
