@@ -71,7 +71,6 @@ public class MissatgesAdapters extends RecyclerView.Adapter<MissatgesAdapters.Vi
 
         public ViewHolder(View view) {
             super(view);
-
             mostra_missatge = view.findViewById(R.id.mostra_missatge);
 
         }
