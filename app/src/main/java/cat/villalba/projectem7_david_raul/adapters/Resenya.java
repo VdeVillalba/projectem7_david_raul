@@ -1,18 +1,16 @@
 package cat.villalba.projectem7_david_raul.adapters;
 
-import java.util.Calendar;
-
 public class Resenya {
 
     private String resenyaId;
     private String usuariId;
     private String peliculaId;
     private String textResenya;
-    private int nota;
+    private String nota;
 
     public Resenya() {}
 
-    public Resenya(String resenyaId, String usuariId, String peliculaId, String textResenya, int nota) {
+    public Resenya(String resenyaId, String usuariId, String peliculaId, String textResenya, String nota) {
         this.resenyaId = resenyaId;
         this.usuariId = usuariId;
         this.peliculaId = peliculaId;
@@ -52,11 +50,11 @@ public class Resenya {
         this.textResenya = textResenya;
     }
 
-    public int getNota() {
+    public String getNota() {
         return nota;
     }
 
-    public void setNota(int nota) {
+    public void setNota(String nota) {
         this.nota = nota;
     }
 }
