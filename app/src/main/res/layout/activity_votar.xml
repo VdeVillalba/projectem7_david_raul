@@ -30,6 +30,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8sp"
+                    android:justificationMode="inter_word"
+                    android:textSize="12sp"
                     android:text="SINOPSI" />
             </RelativeLayout>
 
@@ -48,6 +50,8 @@
                     android:id="@+id/ed_resenya"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:inputType="textCapWords"
+                    android:imeOptions="actionDone"
                     android:hint="@string/quadre_resenya"
                     android:labelFor="@id/ed_resenya" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -170,26 +174,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="50dp"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@id/til_resenya"
                 android:text="@string/btn_envia"
+                android:onClick="guardaResenya"
                 tools:layout_editor_absoluteX="38dp"
                 tools:layout_editor_absoluteY="645dp" />
 
-            <Button
-                android:id="@+id/btn_enrere"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@id/til_resenya"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="50dp"
-                android:text="@string/btn_enrere"
-                tools:layout_editor_absoluteX="265dp"
-                tools:layout_editor_absoluteY="645dp" />
 
             <RelativeLayout
-                android:layout_below="@id/btn_enrere"
+                android:layout_below="@id/btn_enviar"
                 android:layout_width="match_parent"
                 android:layout_height="30dp">
             </RelativeLayout>

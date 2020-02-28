@@ -75,7 +75,6 @@ public class TotesPelis extends Fragment {
 
     private void initializeData() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Pelis");
-
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -85,7 +84,6 @@ public class TotesPelis extends Fragment {
                     Peli peli = snapshot.getValue(Peli.class);
 
                     assert peli != null;
-
                     mPeliculas.add(peli);
 
                 }

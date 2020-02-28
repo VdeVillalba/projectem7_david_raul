@@ -50,4 +50,6 @@
     <string name="votacio_lgtbi">"LGBTI: "</string>
     <string name="btn_enrere">Back</string>
     <string name="btn_envia">Send</string>
+    <string name="votacion">Review</string>
+    <string name="missatge_resenya">Review submitted!</string>
 </resources>

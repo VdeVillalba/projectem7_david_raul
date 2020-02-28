@@ -84,9 +84,7 @@ public class chatsFragment extends Fragment {
 
     private void llegirXats() {
         mContactes = new ArrayList<>();
-
         reference = FirebaseDatabase.getInstance().getReference("Users");
-
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

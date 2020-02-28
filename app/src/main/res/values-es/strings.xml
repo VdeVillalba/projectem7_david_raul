@@ -52,4 +52,6 @@
     <string name="votacio_lgtbi">"LGBTI: "</string>
     <string name="btn_enrere">Atrás</string>
     <string name="btn_envia">Envia</string>
+    <string name="votacion">Reseña</string>
+    <string name="missatge_resenya">Reseña guardada correctamente!</string>
 </resources>

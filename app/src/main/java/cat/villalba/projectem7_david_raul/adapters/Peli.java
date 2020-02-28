@@ -5,19 +5,17 @@ public class Peli {
     private String titulo;
     private String anyo;
     private String sinopsis;
-    private String tematica;
+    private String imageResource;
     private long notaDiversitat;
     private long notaLgtbi;
     private long notaConsciencia;
     private long notaCultural;
-    private String imageResource;
 
-    public Peli(String titulo, String anyo, String sinopsis, String tematica, String imageResource) {
+    public Peli(String titulo, String anyo, String sinopsis, String imageResource) {
         this.titulo = titulo;
         this.anyo = anyo;
         this.sinopsis = sinopsis;
         this.imageResource = imageResource;
-        this.tematica = tematica;
     }
 
     public Peli() {}
@@ -80,14 +78,6 @@ public class Peli {
 
     public String getImageResource() {
         return imageResource;
-    }
-
-    public String getTematica() {
-        return tematica;
-    }
-
-    public void setTematica(String tematica) {
-        this.tematica = tematica;
     }
 
     public void setImageResource(String imageResource) {

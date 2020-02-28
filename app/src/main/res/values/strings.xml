@@ -48,9 +48,10 @@
     <string name="btn_enrere">Enrere</string>
     <string name="introduce_tu_apodo">Introdueix adreça electrònica</string>
     <string name="compte">Compte</string>
+    <string name="missatge_resenya">Resenya guardada correctament!</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_amics">Amics</string>
-    <string name="votacion">Votació</string>
+    <string name="votacion">Resenya</string>
 
 </resources>
