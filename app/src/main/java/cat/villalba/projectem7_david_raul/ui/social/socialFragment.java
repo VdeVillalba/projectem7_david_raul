@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,7 +49,7 @@ public class socialFragment extends Fragment {
     }
 
     private void recuperarResenyes() {
-        //final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Resenyes");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -58,10 +60,12 @@ public class socialFragment extends Fragment {
                     Resenya resenya = snapshot.getValue(Resenya.class);
                     System.out.println(resenya.getTextResenya());
                     assert resenya != null;
-                    //assert firebaseUser != null;
+                    assert firebaseUser != null;
 
-                    //PLANTEAR AQUI PARA CONDICIONAR EL METER SOLO LA DE AMIGOS
-                    mResenyas.add(resenya);
+                    if (!resenya.getUsuariId().equals(firebaseUser.getUid())) {
+                        //PLANTEAR AQUI PARA CONDICIONAR EL METER SOLO LA DE AMIGOS
+                        mResenyas.add(resenya);
+                    }
                 }
 
                 resenyasAdapter = new ResenyasAdapter(getContext(), mResenyas);

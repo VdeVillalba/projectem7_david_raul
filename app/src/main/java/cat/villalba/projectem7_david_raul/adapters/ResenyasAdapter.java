@@ -1,6 +1,7 @@
 package cat.villalba.projectem7_david_raul.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import cat.villalba.projectem7_david_raul.R;
+import cat.villalba.projectem7_david_raul.activities.ResenyaActivity;
 
 
 public class ResenyasAdapter extends RecyclerView.Adapter<ResenyasAdapter.ViewHolder> {
@@ -46,11 +48,10 @@ public class ResenyasAdapter extends RecyclerView.Adapter<ResenyasAdapter.ViewHo
             @Override
             public void onClick(View v) {
 
-                //AQUI HAY QUE METER LA NUEVA CLASE QUE CREE Y CAMBIAR EL MENSAJERIA.CLASS
-/*
-                Intent intent = new Intent(mContext, Mensajeria.class);
+                Intent intent = new Intent(mContext, ResenyaActivity.class);
                 intent.putExtra("Resenya", resenya.getResenyaId());
-                mContext.startActivity(intent);*/
+                mContext.startActivity(intent);
+
             }
         });
 

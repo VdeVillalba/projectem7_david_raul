@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.ResenyaActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/info">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,46 +19,167 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/titol_resenya"></TextView>
+                android:text="@string/titol_resenya" />
 
             <ImageView
+                android:id="@+id/imatge_pelicula"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:id="@+id/imatge_pelicula"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
+                android:id="@+id/pelicula_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nom Película"
                 android:layout_below="@id/imatge_pelicula"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
-                android:textStyle="bold"
-                android:id="@+id/pelicula_name"
-                android:textSize="18sp"/>
+                android:text="Nom Película"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <RatingBar
-        android:id="@+id/estrelles_genere"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/info"
-        android:numStars="5"
-        android:stepSize="1"
-        />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/info">
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        android:layout_marginTop="200dp"
-        android:layout_centerHorizontal="true"
-        />
+            <TextView
+                android:id="@+id/txt_puntuacion"
+                android:layout_width="163dp"
+                android:layout_height="23dp"
+                android:layout_below="@+id/peliResenya"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/votacio_consciencia"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="189dp" />
+
+
+            <TextView
+                android:id="@+id/txt_puntuacion2"
+                android:layout_width="163dp"
+                android:layout_height="23dp"
+                android:layout_below="@id/estrelles_genere"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/votacio_cultural"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="259dp" />
+
+            <TextView
+                android:id="@+id/txt_puntuacion3"
+                android:layout_width="163dp"
+                android:layout_height="23dp"
+                android:layout_below="@id/estrelles_cultural"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/votacio_diversitat"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="328dp" />
+
+            <TextView
+                android:id="@+id/txt_puntuacion4"
+                android:layout_width="163dp"
+                android:layout_height="23dp"
+                android:layout_below="@id/estrelles_funcional"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/votacio_lgtbi"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="397dp" />
+
+            <RatingBar
+                android:isIndicator="true"
+                android:id="@+id/estrelles_cultural"
+                android:layout_width="238dp"
+                android:layout_height="46dp"
+                android:layout_below="@+id/txt_puntuacion2"
+                android:layout_marginStart="25dp"
+                android:numStars="5"
+                android:stepSize="1"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="282dp" />
+
+            <RatingBar
+                android:isIndicator="true"
+                android:id="@+id/estrelles_funcional"
+                android:layout_width="238dp"
+                android:layout_height="46dp"
+                android:layout_below="@id/txt_puntuacion3"
+                android:layout_marginStart="25dp"
+                android:numStars="5"
+                android:stepSize="1"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="351dp" />
+
+            <RatingBar
+                android:isIndicator="true"
+                android:id="@+id/estrelles_genere"
+                android:layout_width="242dp"
+                android:layout_height="47dp"
+                android:layout_below="@id/txt_puntuacion"
+                android:layout_marginStart="25dp"
+                android:numStars="5"
+                android:stepSize="1"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="212dp" />
+
+            <RatingBar
+                android:isIndicator="true"
+                android:id="@+id/estrelles_lgtbi"
+                android:layout_width="242dp"
+                android:layout_height="47dp"
+                android:layout_below="@id/txt_puntuacion4"
+                android:layout_marginStart="25dp"
+                android:numStars="5"
+                android:stepSize="1"
+                tools:layout_editor_absoluteX="48dp"
+                tools:layout_editor_absoluteY="420dp" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="325dp"
+                android:layout_height="118dp"
+                android:layout_below="@id/estrelles_lgtbi"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:background="@color/colorPrimaryDark"
+                tools:layout_editor_absoluteX="148dp"
+                tools:layout_editor_absoluteY="51dp">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/resenya"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:justificationMode="inter_word"
+                        android:padding="8sp"
+                        android:text="Resenya"
+                        android:textSize="12sp" />
+                </androidx.core.widget.NestedScrollView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/relativeLayout"></RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>

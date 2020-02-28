@@ -80,7 +80,7 @@ public class VotarActivity extends AppCompatActivity {
         String idResenya = peli_actual.getTitulo() + firebaseUser.getUid();
 
         Resenya resenya = new Resenya(idResenya, firebaseUser.getEmail(), peli_actual.getTitulo(), resenya_edit.getText().toString(),
-                (long) diversitat.getNumStars(), (long) lgtbi.getNumStars(), (long) genere.getNumStars(), (long) cultural.getNumStars());
+                (long) diversitat.getRating(), (long) lgtbi.getRating(), (long) genere.getRating(), (long) cultural.getRating());
 
         reference = FirebaseDatabase.getInstance().getReference("Resenyes").child(idResenya);
         reference.setValue(resenya).addOnCompleteListener(new OnCompleteListener<Void>() {
