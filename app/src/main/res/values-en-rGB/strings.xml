@@ -55,4 +55,6 @@
     <string name="imagen_del_usuario">User Image</string>
     <string name="btn_afegir">Add to my interests</string>
     <string name="content_imatge">Film Image</string>
+    <string name="nou_amic">Add new friend</string>
+    <string name="afegir">Add</string>
 </resources>

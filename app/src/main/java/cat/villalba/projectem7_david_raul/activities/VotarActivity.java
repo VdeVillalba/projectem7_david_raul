@@ -69,9 +69,6 @@ public class VotarActivity extends AppCompatActivity {
         lgtbi = findViewById(R.id.estrelles_lgtbi);
         resenya_edit = findViewById(R.id.ed_resenya);
 
-
-
-
     }
 
     public void guardaResenya(View view) {

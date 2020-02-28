@@ -62,7 +62,7 @@ public class socialFragment extends Fragment {
                     assert resenya != null;
                     assert firebaseUser != null;
 
-                    if (!resenya.getUsuariId().equals(firebaseUser.getUid())) {
+                    if (!resenya.getUsuariId().equals(firebaseUser.getEmail())) {
                         //PLANTEAR AQUI PARA CONDICIONAR EL METER SOLO LA DE AMIGOS
                         mResenyas.add(resenya);
                     }

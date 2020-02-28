@@ -14,11 +14,16 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.util.Locale;
 
 import cat.villalba.projectem7_david_raul.R;
@@ -28,13 +33,17 @@ public class pantalla_principal extends AppCompatActivity {
 
 
     private AppBarConfiguration mAppBarConfiguration;
+    private FirebaseUser firebaseUser;
     private NavigationView navigation;
+    private TextView usuari;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         setContentView(R.layout.activity_pantalla_principal);
         Toolbar toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +55,9 @@ public class pantalla_principal extends AppCompatActivity {
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView usuari = headerView.findViewById(R.id.drawer_usuari);
+        usuari.setText(firebaseUser.getEmail());
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

@@ -19,9 +19,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import cat.villalba.projectem7_david_raul.R;
+import cat.villalba.projectem7_david_raul.adapters.Contacte;
 
 public class Registro extends AppCompatActivity {
 
@@ -104,15 +106,12 @@ public class Registro extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             assert user != null;
                             String userId = user.getUid();
-
+                            ArrayList<String> amics = new ArrayList<>();
+                            ArrayList<String> interessos = new ArrayList<>();
                             reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
+                            Contacte contacte = new Contacte(userId, email, "default", amics, interessos);
 
-                            HashMap<String, String> hashMap = new HashMap<>();
-                            hashMap.put("id", userId);
-                            hashMap.put("nomContacte", email);
-                            hashMap.put("imageURL", "default");
-
-                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            reference.setValue(contacte).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {

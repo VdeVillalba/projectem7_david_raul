@@ -18,8 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import cat.villalba.projectem7_david_raul.R;
 import cat.villalba.projectem7_david_raul.adapters.Peli;
 import cat.villalba.projectem7_david_raul.adapters.Resenya;
@@ -42,13 +40,9 @@ public class ResenyaActivity extends AppCompatActivity {
 
         final String idResenya = intent.getStringExtra("Resenya");
         diversitat = findViewById(R.id.estrelles_funcional);
-
         cultural = findViewById(R.id.estrelles_cultural);
-
         genere = findViewById(R.id.estrelles_genere);
-
         lgtbi = findViewById(R.id.estrelles_lgtbi);
-
         veure_resenya = findViewById(R.id.resenya);
         peliImagen = findViewById(R.id.imatge_pelicula);
         iniciaResenya(idResenya);

@@ -24,6 +24,12 @@
         tools:layout="@layout/fragment_social" />
 
     <fragment
+        android:id="@+id/nav_amigos"
+        android:name="cat.villalba.projectem7_david_raul.ui.amics.amicsFragment"
+        android:label="@string/menu_social"
+        tools:layout="@layout/fragment_social" />
+
+    <fragment
         android:id="@+id/nav_usuario"
         android:name="cat.villalba.projectem7_david_raul.ui.users.usuariosFragment"
         android:label="@string/menu_usuari"
