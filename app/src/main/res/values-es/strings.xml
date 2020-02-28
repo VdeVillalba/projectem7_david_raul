@@ -46,7 +46,7 @@
     <string name="menu_usuari">Usuario</string>
     <string name="menu_amics">Amigos</string>
     <string name="titol_resenya">Reseña</string>
-    <string name="votacio_consciencia">Conciencia de género</string>
+    <string name="votacio_consciencia">Conciencia de género:</string>
     <string name="votacio_cultural">Diversidad cultural:</string>
     <string name="votacio_diversitat">Diversidad funcional:</string>
     <string name="votacio_lgtbi">"LGBTI: "</string>
@@ -54,4 +54,7 @@
     <string name="btn_envia">Envia</string>
     <string name="votacion">Reseña</string>
     <string name="missatge_resenya">Reseña guardada correctamente!</string>
+    <string name="imagen_del_usuario">Imagen del usuario</string>
+    <string name="btn_afegir">Añadir a mis intereses</string>
+    <string name="content_imatge">Imagen de la película</string>
 </resources>

@@ -26,7 +26,7 @@ import cat.villalba.projectem7_david_raul.adapters.Resenya;
 
 public class ResenyaActivity extends AppCompatActivity {
 
-    Intent intent;
+    private Intent intent;
     private RatingBar diversitat;
     private RatingBar cultural;
     private RatingBar genere;

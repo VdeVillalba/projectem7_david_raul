@@ -22,13 +22,13 @@ import java.util.Collections;
 
 import cat.villalba.projectem7_david_raul.R;
 import cat.villalba.projectem7_david_raul.adapters.Peli;
-import cat.villalba.projectem7_david_raul.adapters.adaptadorPelis;
+import cat.villalba.projectem7_david_raul.adapters.adaptadorPelisGeneral;
 
 public class TotesPelis extends Fragment {
 
     private RecyclerView mRecyclerView;
     private ArrayList<Peli> mPeliculas;
-    private adaptadorPelis mAdapter;
+    private adaptadorPelisGeneral mAdapter;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -41,7 +41,7 @@ public class TotesPelis extends Fragment {
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         mPeliculas = new ArrayList<>();
-        mAdapter = new adaptadorPelis(getContext(), mPeliculas);
+        mAdapter = new adaptadorPelisGeneral(getContext(), mPeliculas);
 
         mRecyclerView.setAdapter(mAdapter);
 
@@ -88,7 +88,7 @@ public class TotesPelis extends Fragment {
 
                 }
 
-                mAdapter = new adaptadorPelis(getContext(), mPeliculas);
+                mAdapter = new adaptadorPelisGeneral(getContext(), mPeliculas);
                 mRecyclerView.setAdapter(mAdapter);
             }
 

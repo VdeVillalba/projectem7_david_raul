@@ -13,34 +13,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cat.villalba.projectem7_david_raul.R;
-import cat.villalba.projectem7_david_raul.activities.Mensajeria;
-import cat.villalba.projectem7_david_raul.activities.VotarActivity;
+import cat.villalba.projectem7_david_raul.activities.activity_presentacioPelis;
 
-
-public class adaptadorPelis extends RecyclerView.Adapter<adaptadorPelis.ViewHolder> {
+public class adaptadorPelisGeneral extends RecyclerView.Adapter<adaptadorPelisGeneral.ViewHolder> {
 
     private Context mContext;
     private List<Peli> mPelis;
 
-    public adaptadorPelis(Context mContext, List<Peli> mPelis) {
+    public adaptadorPelisGeneral(Context mContext, List<Peli> mPelis) {
         this.mPelis = mPelis;
         this.mContext = mContext;
     }
 
     @NonNull
     @Override
-    public adaptadorPelis.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public adaptadorPelisGeneral.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.pelicula_item, parent, false);
-        return new adaptadorPelis.ViewHolder(view);
+        return new adaptadorPelisGeneral.ViewHolder(view);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull adaptadorPelis.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull adaptadorPelisGeneral.ViewHolder holder, int position) {
         final Peli peli = mPelis.get(position);
         holder.titolPeli.setText(peli.getTitulo());
 
@@ -53,7 +50,8 @@ public class adaptadorPelis extends RecyclerView.Adapter<adaptadorPelis.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, VotarActivity.class);
+
+                Intent intent = new Intent(mContext, activity_presentacioPelis.class);
                 intent.putExtra("Titol", peli.getTitulo());
                 mContext.startActivity(intent);
             }

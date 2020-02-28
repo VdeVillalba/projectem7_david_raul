@@ -1,42 +1,28 @@
 package cat.villalba.projectem7_david_raul.activities;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-
 import cat.villalba.projectem7_david_raul.R;
 import cat.villalba.projectem7_david_raul.adapters.Peli;
 import cat.villalba.projectem7_david_raul.adapters.Resenya;
 
+public class activity_presentacioPelis extends AppCompatActivity {
 
-public class VotarActivity extends AppCompatActivity {
 
     private RatingBar diversitat;
     private RatingBar cultural;
@@ -48,18 +34,19 @@ public class VotarActivity extends AppCompatActivity {
     private TextView sinopsi;
     private Peli peli_actual;
     private Intent intent;
-    private DatabaseReference reference;
-    private AlertDialog alertDialog;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_votar);
         intent = getIntent();
+        setContentView(R.layout.activity_presentacio);
         String idPeli = intent.getStringExtra("Titol");
         iniciaPeli(idPeli);
-        alertDialog = new AlertDialog.Builder(this).create();
+        calculaMedias(idPeli);
         peliImagen = findViewById(R.id.peliResenya);
         peli_titol = findViewById(R.id.titol);
         sinopsi = findViewById(R.id.sinopsi);
@@ -67,45 +54,48 @@ public class VotarActivity extends AppCompatActivity {
         cultural = findViewById(R.id.estrelles_cultural);
         genere = findViewById(R.id.estrelles_genere);
         lgtbi = findViewById(R.id.estrelles_lgtbi);
-        resenya_edit = findViewById(R.id.ed_resenya);
-
-
 
 
     }
 
-    public void guardaResenya(View view) {
-
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        String idResenya = peli_actual.getTitulo() + firebaseUser.getUid();
-
-        Resenya resenya = new Resenya(idResenya, firebaseUser.getEmail(), peli_actual.getTitulo(), resenya_edit.getText().toString(),
-                (long) diversitat.getRating(), (long) lgtbi.getRating(), (long) genere.getRating(), (long) cultural.getRating());
-
-        reference = FirebaseDatabase.getInstance().getReference("Resenyes").child(idResenya);
-        reference.setValue(resenya).addOnCompleteListener(new OnCompleteListener<Void>() {
+    private void calculaMedias(final String idPeli) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Resenyes");
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    alertDialog.setTitle("Info");
-                    alertDialog.setMessage(getString(R.string.missatge_resenya));
-                    alertDialog.setIcon(R.drawable.ic_done);
-                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(VotarActivity.this, pantalla_principal.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                            });
-                    alertDialog.show();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                float mitjanaDiversitat = 0;
+                float mitjanaGenere = 0;
+                float mitjanaCultural = 0;
+                float mitjanaLGTBI = 0;
+                float comptador = 0;
 
-                } else {
-                    Toast.makeText(VotarActivity.this, "Error en la creació de la resenya.",
-                            Toast.LENGTH_SHORT).show();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Resenya resenya = snapshot.getValue(Resenya.class);
+                    assert resenya != null;
+                    if (resenya.getPeliculaId().equals(idPeli)) {
+                        comptador++;
+                        mitjanaDiversitat += (float) resenya.getNotaDiversitat();
+                        mitjanaGenere += (float) resenya.getNotaConsciencia();
+                        mitjanaCultural += (float) resenya.getNotaCultural();
+                        mitjanaLGTBI += (float) resenya.getNotaLgti();
+
+                    }
+
                 }
+
+                mitjanaDiversitat /= comptador;
+                mitjanaGenere /= comptador;
+                mitjanaCultural /= comptador;
+                mitjanaLGTBI /= comptador;
+
+                diversitat.setRating(mitjanaDiversitat);
+                cultural.setRating(mitjanaCultural);
+                genere.setRating(mitjanaGenere);
+                lgtbi.setRating(mitjanaLGTBI);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
@@ -136,6 +126,4 @@ public class VotarActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

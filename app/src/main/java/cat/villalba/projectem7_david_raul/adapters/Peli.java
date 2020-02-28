@@ -6,10 +6,7 @@ public class Peli {
     private String anyo;
     private String sinopsis;
     private String imageResource;
-    private long notaDiversitat;
-    private long notaLgtbi;
-    private long notaConsciencia;
-    private long notaCultural;
+
 
     public Peli(String titulo, String anyo, String sinopsis, String imageResource) {
         this.titulo = titulo;
@@ -42,38 +39,6 @@ public class Peli {
 
     public void setSinopsis(String sinopsis) {
         this.sinopsis = sinopsis;
-    }
-
-    public long getNotaDiversitat() {
-        return notaDiversitat;
-    }
-
-    public void setNotaDiversitat(long notaDiversitat) {
-        this.notaDiversitat = notaDiversitat;
-    }
-
-    public long getNotaLgtbi() {
-        return notaLgtbi;
-    }
-
-    public void setNotaLgti(long notaLgti) {
-        this.notaLgtbi = notaLgti;
-    }
-
-    public long getNotaConsciencia() {
-        return notaConsciencia;
-    }
-
-    public void setNotaConsciencia(long notaConsciencia) {
-        this.notaConsciencia = notaConsciencia;
-    }
-
-    public long getNotaCultural() {
-        return notaCultural;
-    }
-
-    public void setNotaCultural(long notaCultural) {
-        this.notaCultural = notaCultural;
     }
 
     public String getImageResource() {

@@ -52,4 +52,7 @@
     <string name="btn_envia">Send</string>
     <string name="votacion">Review</string>
     <string name="missatge_resenya">Review submitted!</string>
+    <string name="imagen_del_usuario">User Image</string>
+    <string name="btn_afegir">Add to my interests</string>
+    <string name="content_imatge">Film Image</string>
 </resources>

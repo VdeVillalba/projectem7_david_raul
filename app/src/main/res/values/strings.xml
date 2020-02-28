@@ -49,10 +49,10 @@
     <string name="introduce_tu_apodo">Introdueix adreça electrònica</string>
     <string name="compte">Compte</string>
     <string name="missatge_resenya">Resenya guardada correctament!</string>
-
+    <string name="content_imatge">Imatge de la pel·lícula</string>
     <string name="menu_amics">Amics</string>
-    <string name="votacion">Votació</string>
-    <string name="imagen_del_usuario">Imagen del usuario</string>
+    <string name="imagen_del_usuario">Imatge del usuari</string>
     <string name="votacion">Resenya</string>
+    <string name="btn_afegir">Afegir als meus interessos</string>
 
 </resources>
