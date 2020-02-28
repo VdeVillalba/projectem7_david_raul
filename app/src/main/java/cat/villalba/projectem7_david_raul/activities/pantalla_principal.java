@@ -90,6 +90,8 @@ public class pantalla_principal extends BaseActivity {
                 Configuration config = new Configuration();
                 config.locale = localizacion;
                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                finish();
+                startActivity(getIntent());
                 return true;
 
             case R.id.espanyol:
@@ -99,6 +101,8 @@ public class pantalla_principal extends BaseActivity {
                 Configuration config2 = new Configuration();
                 config2.locale = localizacion2;
                 getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
+                finish();
+                startActivity(getIntent());
                 return true;
 
             case R.id.angles:
@@ -108,6 +112,8 @@ public class pantalla_principal extends BaseActivity {
                 Configuration config3 = new Configuration();
                 config3.locale = localizacion3;
                 getBaseContext().getResources().updateConfiguration(config3, getBaseContext().getResources().getDisplayMetrics());
+                finish();
+                startActivity(getIntent());
                 return true;
 
             default:

@@ -25,7 +25,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home">Tu seleccion</string>
     <string name="menu_peliculas">Peliculas</string>
     <string name="menu_social">Social</string>
     <string name="menu_tools">Tools</string>
@@ -45,4 +45,5 @@
     <string name="hint_missatge">Escribe un mensaje...</string>
     <string name="menu_usuari">Usuario</string>
     <string name="menu_amics">Amigos</string>
+    <string name="votacion">Votación</string>
 </resources>
