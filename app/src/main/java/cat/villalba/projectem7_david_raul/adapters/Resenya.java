@@ -6,16 +6,24 @@ public class Resenya {
     private String usuariId;
     private String peliculaId;
     private String textResenya;
-    private String nota;
+    private long notaDiversitat;
+    private long notaLgti;
+    private long notaConsciencia;
+    private long notaCultural;
 
-    public Resenya() {}
 
-    public Resenya(String resenyaId, String usuariId, String peliculaId, String textResenya, String nota) {
+    public Resenya() {
+    }
+
+    public Resenya(String resenyaId, String usuariId, String peliculaId, String textResenya, long notaDiversitat, long notaLgti, long notaConsciencia, long notaCultural) {
         this.resenyaId = resenyaId;
         this.usuariId = usuariId;
         this.peliculaId = peliculaId;
         this.textResenya = textResenya;
-        this.nota = nota;
+        this.notaDiversitat = notaDiversitat;
+        this.notaLgti = notaLgti;
+        this.notaConsciencia = notaConsciencia;
+        this.notaCultural = notaCultural;
     }
 
     public String getResenyaId() {
@@ -50,13 +58,38 @@ public class Resenya {
         this.textResenya = textResenya;
     }
 
-    public String getNota() {
-        return nota;
+    public long getNotaDiversitat() {
+        return notaDiversitat;
     }
 
-    public void setNota(String nota) {
-        this.nota = nota;
+    public void setNotaDiversitat(long notaDiversitat) {
+        this.notaDiversitat = notaDiversitat;
+    }
+
+    public long getNotaLgti() {
+        return notaLgti;
+    }
+
+    public void setNotaLgti(long notaLgti) {
+        this.notaLgti = notaLgti;
+    }
+
+    public long getNotaConsciencia() {
+        return notaConsciencia;
+    }
+
+    public void setNotaConsciencia(long notaConsciencia) {
+        this.notaConsciencia = notaConsciencia;
+    }
+
+    public long getNotaCultural() {
+        return notaCultural;
+    }
+
+    public void setNotaCultural(long notaCultural) {
+        this.notaCultural = notaCultural;
     }
 }
+
 
 

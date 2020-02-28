@@ -25,7 +25,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Tu seleccion</string>
+    <string name="menu_home">Home</string>
     <string name="menu_peliculas">Peliculas</string>
     <string name="menu_social">Social</string>
     <string name="menu_tools">Tools</string>
@@ -45,5 +45,11 @@
     <string name="hint_missatge">Escribe un mensaje...</string>
     <string name="menu_usuari">Usuario</string>
     <string name="menu_amics">Amigos</string>
-    <string name="votacion">Votación</string>
+    <string name="titol_resenya">Reseña</string>
+    <string name="votacio_consciencia">Conciencia de género</string>
+    <string name="votacio_cultural">Diversidad cultural:</string>
+    <string name="votacio_diversitat">Diversidad funcional:</string>
+    <string name="votacio_lgtbi">"LGBTI: "</string>
+    <string name="btn_enrere">Atrás</string>
+    <string name="btn_envia">Envia</string>
 </resources>

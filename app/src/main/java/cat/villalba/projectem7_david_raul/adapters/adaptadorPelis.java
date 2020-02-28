@@ -8,74 +8,73 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import cat.villalba.projectem7_david_raul.R;
+import cat.villalba.projectem7_david_raul.activities.Mensajeria;
 import cat.villalba.projectem7_david_raul.activities.VotarActivity;
 
 
 public class adaptadorPelis extends RecyclerView.Adapter<adaptadorPelis.ViewHolder> {
 
-    private ArrayList<Peli> mPeliculas;
     private Context mContext;
+    private List<Peli> mPelis;
 
-    public adaptadorPelis(Context context, ArrayList<Peli> peliculas) {
-        this.mPeliculas = peliculas;
-        this.mContext = context;
+    public adaptadorPelis(Context mContext, List<Peli> mPelis) {
+        this.mPelis = mPelis;
+        this.mContext = mContext;
+    }
+
+    @NonNull
+    @Override
+    public adaptadorPelis.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.pelicula_item, parent, false);
+        return new adaptadorPelis.ViewHolder(view);
+
     }
 
     @Override
-    public adaptadorPelis.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.pelicula_item,parent, false));
-    }
+    public void onBindViewHolder(@NonNull adaptadorPelis.ViewHolder holder, int position) {
+        final Peli peli = mPelis.get(position);
+        holder.titolPeli.setText(peli.getTitulo());
 
-    @Override
-    public void onBindViewHolder(adaptadorPelis.ViewHolder holder, int position) {
-
-        Peli peliActual = mPeliculas.get(position);
-        holder.bindTo(peliActual);
-    }
-
-    @Override
-    public int getItemCount() {return mPeliculas.size();}
-
-    class ViewHolder extends RecyclerView.ViewHolder
-    implements View.OnClickListener{
-        private TextView mTitulo;
-        private TextView mInfo;
-        private TextView mResumen;
-        private TextView mDirector;
-        private ImageView mPeliImagen;
-
-
-        ViewHolder(View itemView) {
-            super(itemView);
-
-
-            mTitulo = (TextView)itemView.findViewById(R.id.title);
-            mInfo = (TextView) itemView.findViewById(R.id.argumento);
-            mDirector = (TextView) itemView.findViewById(R.id.Director);
-            mPeliImagen = itemView.findViewById(R.id.peliImagen);
-            itemView.setOnClickListener(this);
+        if (peli.getImageResource().equals("default")) {
+            holder.imatgePeli.setImageResource(R.mipmap.ic_launcher);
+        } else {
+            Glide.with(mContext).load(peli.getImageResource()).into(holder.imatgePeli);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, VotarActivity.class);
+                intent.putExtra("Titol", peli.getTitulo());
+                mContext.startActivity(intent);
+            }
+        });
 
-        void bindTo(Peli peliActual) {
-            mTitulo.setText(peliActual.getTitulo());
-            mDirector.setText(peliActual.getDirector());
-            Glide.with(mContext).load(peliActual.getImageResource()).into(mPeliImagen);
-        }
+    }
 
-        @Override
-        public void onClick(View view) {
-            Peli peliActual = mPeliculas.get(getAdapterPosition());
-            Intent pantallaVotar = new Intent(mContext, VotarActivity.class);
-            pantallaVotar.putExtra("title", peliActual.getTitulo());
-            mContext.startActivity(pantallaVotar);
+    @Override
+    public int getItemCount() {
+        return mPelis.size();
+    }
 
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView titolPeli;
+        public ImageView imatgePeli;
+
+        public ViewHolder(View view) {
+            super(view);
+
+            titolPeli = view.findViewById(R.id.title);
+            imatgePeli = view.findViewById(R.id.peliImagen);
         }
     }
 }
