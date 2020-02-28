@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="cat.villalba.projectem7_david_raul.ui.gallery.GalleryFragment"
+        android:id="@+id/nav_totespelis"
+        android:name="cat.villalba.projectem7_david_raul.ui.totesPelicules.TotesPelis"
         android:label="@string/menu_peliculas"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_totespelis" />
 
     <fragment
         android:id="@+id/nav_social"

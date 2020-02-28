@@ -7,17 +7,17 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 
-import cat.villalba.projectem7_david_raul.adapters.BaseActivity;
 import cat.villalba.projectem7_david_raul.R;
 
-public class VotarActivity extends BaseActivity {
+public class VotarActivity extends AppCompatActivity {
 
     private RatingBar estrelles;
     private ImageView peli_image;
