@@ -30,9 +30,6 @@ public class pantalla_principal extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private NavigationView navigation;
 
-    private Locale myLocale;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
