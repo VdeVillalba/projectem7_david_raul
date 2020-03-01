@@ -26,7 +26,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.List;
+
 import cat.villalba.projectem7_david_raul.R;
+import cat.villalba.projectem7_david_raul.adapters.Contacte;
 import cat.villalba.projectem7_david_raul.adapters.Peli;
 import cat.villalba.projectem7_david_raul.adapters.Resenya;
 import cat.villalba.projectem7_david_raul.adapters.Solicitud;
@@ -45,6 +48,9 @@ public class activity_presentacioPelis extends AppCompatActivity {
     private Intent intent;
     private AlertDialog alertDialog;
     private Context mContext = this;
+    private List<String> interessos;
+    private FirebaseUser firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
+    private Contacte contacte;
 
 
 
@@ -72,26 +78,39 @@ public class activity_presentacioPelis extends AppCompatActivity {
 
     public void afegirInteressos(View view) {
 
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).child("interessos").child(peli_titol.getText().toString());
-        reference.setValue(peli_titol.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("Users").child(firebaseUser.getUid());
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                contacte = dataSnapshot.getValue(Contacte.class);
+                interessos = contacte.getInteressos();
+                interessos.add(peli_titol.getText().toString());
+                DatabaseReference referenceInteressos = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).child("interessos");
+                referenceInteressos.setValue(interessos).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
 
-                    Toast.makeText(activity_presentacioPelis.this, (mContext.getString(R.string.interessos_afegits)),
-                            Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity_presentacioPelis.this, (mContext.getString(R.string.interessos_afegits)),
+                                    Toast.LENGTH_SHORT).show();
 
-                } else {
+                        } else {
 
-                    Toast.makeText(activity_presentacioPelis.this, "Error",
-                            Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity_presentacioPelis.this, "Error",
+                                    Toast.LENGTH_SHORT).show();
 
-                }
+                        }
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
             }
         });
-
-
     }
 
     private void calculaMedias(final String idPeli) {

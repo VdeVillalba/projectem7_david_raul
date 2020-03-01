@@ -64,6 +64,7 @@
     <string name="rebutja">Denega</string>
     <string name="enviada_correctament">Sol·licitud enviada!</string>
     <string name="interessos_afegits">Afegida als teus interessos</string>
+    <string name="interessos_eliminats">Eliminada dels teus interessos</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

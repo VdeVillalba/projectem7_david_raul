@@ -28,9 +28,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
-
 import cat.villalba.projectem7_david_raul.R;
 import cat.villalba.projectem7_david_raul.adapters.Peli;
 import cat.villalba.projectem7_david_raul.adapters.Resenya;
@@ -133,6 +130,4 @@ public class VotarActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
