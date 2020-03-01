@@ -62,10 +62,6 @@ private Contacte contacte;
                 contacte = dataSnapshot.getValue(Contacte.class);
                 amics = contacte.getAmics();
 
-                System.out.println(contacte.getId());
-                for (String url : amics.keySet())
-                    System.out.println("value: " + url);
-
                 DatabaseReference referenceAmics = FirebaseDatabase.getInstance().getReference("Users");
                 referenceAmics.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -98,8 +94,6 @@ private Contacte contacte;
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
     }
-
 
 }
