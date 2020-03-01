@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import cat.villalba.projectem7_david_raul.R;
 import cat.villalba.projectem7_david_raul.adapters.Contacte;
@@ -106,8 +107,10 @@ public class Registro extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             assert user != null;
                             String userId = user.getUid();
-                            ArrayList<String> amics = new ArrayList<>();
+                            Map<String,String> amics = new HashMap<>();
+                            amics.put("Inicialitzador", "null");
                             ArrayList<String> interessos = new ArrayList<>();
+                            interessos.add("Inicialitzador");
                             reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
                             Contacte contacte = new Contacte(userId, email, "default", amics, interessos);
 

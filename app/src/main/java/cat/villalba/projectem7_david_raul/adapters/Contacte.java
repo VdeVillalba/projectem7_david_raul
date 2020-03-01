@@ -1,17 +1,19 @@
 package cat.villalba.projectem7_david_raul.adapters;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Contacte {
 
     private String id;
     private String imageURL;
     private String nomContacte;
-    private List<String> amics;
+    private Map<String,String> amics;
     private List<String> interessos;
 
-    public Contacte(String id, String nomContacte, String imageURL, ArrayList<String> amics, ArrayList<String> interessos) {
+    public Contacte(String id, String nomContacte, String imageURL, Map<String,String> amics, ArrayList<String> interessos) {
         this.id = id;
         this.imageURL = imageURL;
         this.nomContacte = nomContacte;
@@ -38,11 +40,11 @@ public class Contacte {
         this.imageURL = imageURL;
     }
 
-    public List<String> getAmics() {
+    public Map<String,String> getAmics() {
         return amics;
     }
 
-    public void setAmics(List<String> amics) {
+    public void setAmics(Map<String,String> amics) {
         this.amics = amics;
     }
 

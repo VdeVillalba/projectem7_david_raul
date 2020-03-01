@@ -59,4 +59,12 @@
     <string name="content_imatge">Imagen de la película</string>
     <string name="nou_amic">Añadir nuevo amigo</string>
     <string name="afegir">Añadir</string>
+    <string name="pendent">Solicitudes pendientes</string>
+    <string name="solicitud">Solicitud de amistad</string>
+    <string name="solicitud_text">¿Quieres aceptar a este usuario como amigo?</string>
+    <string name="accepta">Acepta</string>
+    <string name="cancel">Cancela</string>
+    <string name="rebutja">Denega</string>
+    <string name="enviada_correctament">Solicitud enviada!</string>
+    <string name="interessos_afegits">Añadida a tus intereses</string>
 </resources>

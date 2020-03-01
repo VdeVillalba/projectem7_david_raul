@@ -56,5 +56,16 @@
     <string name="btn_afegir">Afegir als meus interessos</string>
     <string name="nou_amic">Afegir nou amic</string>
     <string name="afegir">Afegir</string>
+    <string name="pendent">Sol·licituds pendents</string>
+    <string name="solicitud">Sol·licitud d\'amistat</string>
+    <string name="solicitud_text">Vols acceptar aquest usuari com amic?</string>
+    <string name="cancel">Cancel·la</string>
+    <string name="accepta">Accepta</string>
+    <string name="rebutja">Denega</string>
+    <string name="enviada_correctament">Sol·licitud enviada!</string>
+    <string name="interessos_afegits">Afegida als teus interessos</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

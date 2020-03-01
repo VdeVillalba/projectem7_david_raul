@@ -1,5 +1,7 @@
 package cat.villalba.projectem7_david_raul.activities;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -21,8 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.Locale;
 
@@ -58,8 +58,7 @@ public class pantalla_principal extends AppCompatActivity {
         View headerView = navigationView.getHeaderView(0);
         TextView usuari = headerView.findViewById(R.id.drawer_usuari);
         usuari.setText(firebaseUser.getEmail());
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_totespelis, R.id.nav_social, R.id.nav_usuario, R.id.nav_amigos,
                 R.id.nav_logout)

@@ -13,8 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.activity_presentacioPelis"
-            android:parentActivityName=".activities.pantalla_principal"></activity>
+        <activity android:name=".activities.activity_presentacioPelis"></activity>
         <activity android:name=".activities.ResenyaActivity" />
         <activity
             android:name=".activities.Mensajeria"

@@ -161,7 +161,8 @@
                 android:layout_below="@id/estrelles_lgtbi"
                 android:text="@string/btn_afegir"
                 tools:layout_editor_absoluteX="38dp"
-                tools:layout_editor_absoluteY="645dp" />
+                tools:layout_editor_absoluteY="645dp"
+                android:onClick="afegirInteressos"/>
 
 
             <RelativeLayout

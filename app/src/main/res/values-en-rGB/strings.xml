@@ -57,4 +57,12 @@
     <string name="content_imatge">Film Image</string>
     <string name="nou_amic">Add new friend</string>
     <string name="afegir">Add</string>
+    <string name="pendent">Friend requests</string>
+    <string name="solicitud">Friendship request</string>
+    <string name="solicitud_text">Do you want to add this user to your friends list?</string>
+    <string name="accepta">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="rebutja">Refuse</string>
+    <string name="enviada_correctament">Request sent!</string>
+    <string name="interessos_afegits">Added to your interests</string>
 </resources>
