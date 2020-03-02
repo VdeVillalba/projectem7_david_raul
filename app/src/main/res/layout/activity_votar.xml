@@ -4,9 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activities.VotarActivity">
 
+    <RelativeLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/capcelera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titol"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Títol"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="12dp" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="200dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginStart="140dp"
+            android:background="@color/colorPrimaryDark"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="51dp">
+
+            <TextView
+                android:scrollbars="vertical"
+                android:id="@+id/sinopsi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8sp"
+                android:justificationMode="inter_word"
+                android:textSize="12sp"
+                android:text="SINOPSI" />
+        </RelativeLayout>
+
+        <ImageView
+
+            android:id="@+id/peliResenya"
+            android:layout_width="85dp"
+            android:layout_height="120dp"
+            android:contentDescription="@+id/peliResenya"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="70dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="44dp" />
+    </RelativeLayout>
+
+
     <ScrollView
+        android:layout_marginTop="220dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -14,26 +69,6 @@
             android:id="@+id/grupo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <RelativeLayout
-                android:id="@+id/relativeLayout"
-                android:layout_width="200dp"
-                android:layout_height="118dp"
-                android:layout_marginTop="72dp"
-                android:layout_marginStart="140dp"
-                android:background="@color/colorPrimaryDark"
-                tools:layout_editor_absoluteX="148dp"
-                tools:layout_editor_absoluteY="51dp">
-
-                <TextView
-                    android:id="@+id/sinopsi"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="8sp"
-                    android:justificationMode="inter_word"
-                    android:textSize="12sp"
-                    android:text="SINOPSI" />
-            </RelativeLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_resenya"
@@ -56,24 +91,11 @@
                     android:labelFor="@id/ed_resenya" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-
-                android:id="@+id/peliResenya"
-                android:layout_width="85dp"
-                android:layout_height="120dp"
-                android:contentDescription="@+id/peliResenya"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="70dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
-                tools:layout_editor_absoluteX="48dp"
-                tools:layout_editor_absoluteY="44dp" />
 
             <TextView
                 android:id="@+id/txt_puntuacion"
                 android:layout_width="163dp"
                 android:layout_height="23dp"
-                android:layout_below="@+id/peliResenya"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="30dp"
                 android:text="@string/votacio_consciencia"
@@ -157,17 +179,6 @@
                 android:stepSize="1"
                 tools:layout_editor_absoluteX="48dp"
                 tools:layout_editor_absoluteY="420dp" />
-
-            <TextView
-                android:id="@+id/titol"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="40dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Títol"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="52dp"
-                tools:layout_editor_absoluteY="12dp" />
 
             <Button
                 android:id="@+id/btn_enviar"

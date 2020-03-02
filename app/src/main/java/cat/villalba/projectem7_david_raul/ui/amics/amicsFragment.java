@@ -1,8 +1,6 @@
 package cat.villalba.projectem7_david_raul.ui.amics;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
@@ -14,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -81,16 +80,9 @@ public class amicsFragment extends Fragment {
                         Solicitud solicitud = new Solicitud(codiPeticio, firebaseUser.getUid(), contacte.getId());
                         reference.setValue(solicitud);
                         contacteInvitar.setText("");
-                        alertDialog.setTitle(getContext().getString(R.string.solicitud));
-                        alertDialog.setMessage(getContext().getString(R.string.enviada_correctament));
-                        alertDialog.setIcon(R.drawable.ic_addamigowhite);
-                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        alertDialog.dismiss();
-                                    }
-                                });
-                        alertDialog.show();
+
+                        Toast.makeText(getContext(), (getContext().getString(R.string.enviada_correctament)),
+                                Toast.LENGTH_SHORT).show();
 
                     }
                 }

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,6 +68,7 @@ public class activity_presentacioPelis extends AppCompatActivity {
         peliImagen = findViewById(R.id.peliResenya);
         peli_titol = findViewById(R.id.titol);
         sinopsi = findViewById(R.id.sinopsi);
+        sinopsi.setMovementMethod(new ScrollingMovementMethod());
         diversitat = findViewById(R.id.estrelles_funcional);
         cultural = findViewById(R.id.estrelles_cultural);
         genere = findViewById(R.id.estrelles_genere);
