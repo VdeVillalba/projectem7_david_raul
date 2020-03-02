@@ -72,4 +72,6 @@
     <string name="canvi">No derivate works</string>
     <string name="economic">Non-profit use</string>
     <string name="info_llicencia">Information</string>
+    <string name="primera_part_missatge">User</string>
+    <string name="segona_part_missatge">" has reviewed the film "</string>
 </resources>

@@ -74,4 +74,6 @@
     <string name="canvi">No modificable</string>
     <string name="economic">No uso comercial</string>
     <string name="info_llicencia">Información</string>
+    <string name="primera_part_missatge">El usuario</string>
+    <string name="segona_part_missatge">" ha valorado la película "</string>
 </resources>
