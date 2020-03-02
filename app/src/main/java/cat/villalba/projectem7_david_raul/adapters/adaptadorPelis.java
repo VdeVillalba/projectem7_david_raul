@@ -13,11 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cat.villalba.projectem7_david_raul.R;
-import cat.villalba.projectem7_david_raul.activities.Mensajeria;
 import cat.villalba.projectem7_david_raul.activities.VotarActivity;
 
 

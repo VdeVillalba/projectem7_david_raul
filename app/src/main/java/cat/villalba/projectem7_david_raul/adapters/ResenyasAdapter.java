@@ -39,7 +39,7 @@ public class ResenyasAdapter extends RecyclerView.Adapter<ResenyasAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ResenyasAdapter.ViewHolder holder, int position) {
         final Resenya resenya = mResenyes.get(position);
-        final String notificacio = R.string.primera_part_missatge + resenya.getUsuariId() + R.string.segona_part_missatge +
+        final String notificacio = mContext.getString(R.string.primera_part_missatge) + resenya.getUsuariId() + mContext.getString(R.string.segona_part_missatge) +
                 resenya.getPeliculaId();
 
         holder.resenya.setText(notificacio);

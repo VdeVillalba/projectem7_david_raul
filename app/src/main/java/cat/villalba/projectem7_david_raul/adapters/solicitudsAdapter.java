@@ -1,9 +1,7 @@
 package cat.villalba.projectem7_david_raul.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import cat.villalba.projectem7_david_raul.R;
-import cat.villalba.projectem7_david_raul.activities.pantalla_principal;
 
 
 public class solicitudsAdapter extends RecyclerView.Adapter<solicitudsAdapter.ViewHolder> {
@@ -53,7 +49,6 @@ public class solicitudsAdapter extends RecyclerView.Adapter<solicitudsAdapter.Vi
         contacte = mUsers.get(position);
         holder.nomContacte.setText(contacte.getNomContacte());
         alertDialog = new AlertDialog.Builder(mContext).create();
-        //Aqui iria si quiero crear una imagen de perfil
         holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +123,7 @@ public class solicitudsAdapter extends RecyclerView.Adapter<solicitudsAdapter.Vi
     }
 
     public void removeItem(Contacte contacte) {
+
 
         int currPosition = mUsers.indexOf(contacte);
         mUsers.remove(currPosition);

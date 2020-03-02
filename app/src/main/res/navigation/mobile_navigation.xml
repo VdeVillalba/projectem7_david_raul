@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/nav_amigos"
         android:name="cat.villalba.projectem7_david_raul.ui.amics.amicsFragment"
-        android:label="@string/menu_social"
+        android:label="@string/menu_amics"
         tools:layout="@layout/fragment_social" />
 
     <fragment

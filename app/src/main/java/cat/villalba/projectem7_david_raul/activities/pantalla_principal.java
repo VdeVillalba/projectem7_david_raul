@@ -1,7 +1,5 @@
 package cat.villalba.projectem7_david_raul.activities;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;

@@ -21,8 +21,6 @@ import cat.villalba.projectem7_david_raul.R;
 
 public class Login extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity" ;
-
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
 

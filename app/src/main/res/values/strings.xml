@@ -19,9 +19,8 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="menu_tools">Tools</string>
     <string name="menu_social">Social</string>
-    <string name="menu_home">Ses seleccions</string>
+    <string name="menu_home">Els teus interessos</string>
     <string name="menu_peliculas">Pel·licules</string>
     <string name="introduce_tus_apellidos">Introdueix els teus cognoms:</string>
     <string name="introduce_tu_nombre">Introdueix el teu nom</string>
@@ -71,6 +70,9 @@
     <string name="economic">No ús comercial</string>
     <string name="canvi">No modificable</string>
     <string name="info_llicencia">Informació</string>
-    <string name="primera_part_missatge">L'usuari </string>
+    <string name="primera_part_missatge">L\'usuari </string>
     <string name="segona_part_missatge"> ha fet una valoració de la pel·lícula </string>
+    <string name="info_peli">Informació general</string>
+    <string name="xat">Xats</string>
+    <string name="contactes">Contactes</string>
 </resources>

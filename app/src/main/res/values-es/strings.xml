@@ -25,10 +25,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home">Tus intereses</string>
     <string name="menu_peliculas">Peliculas</string>
     <string name="menu_social">Social</string>
-    <string name="menu_tools">Tools</string>
 
     <string name="title_placeholder">Título</string>
     <string name="director">Director</string>
@@ -74,6 +73,9 @@
     <string name="canvi">No modificable</string>
     <string name="economic">No uso comercial</string>
     <string name="info_llicencia">Información</string>
-    <string name="primera_part_missatge">El usuario</string>
+    <string name="primera_part_missatge">"El usuario "</string>
     <string name="segona_part_missatge">" ha valorado la película "</string>
+    <string name="info_peli">Información general</string>
+    <string name="xat">Chats</string>
+    <string name="contactes">Contactos</string>
 </resources>

@@ -6,14 +6,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -21,7 +19,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,18 +32,24 @@ public class amicsFragment extends Fragment {
     private RecyclerView recyclerView;
     private solicitudsAdapter solicitudsAdapter;
     private List<Contacte> contactes;
+    private List<Contacte> contactesTemporal;
     private Solicitud solicitud;
     private Contacte contacte;
     private EditText contacteInvitar;
     private Button btn_envia;
     private AlertDialog alertDialog;
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+    private List<Solicitud> solicituds;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_amics, container, false);
+        solicituds = new ArrayList<>();
+        contactesTemporal = new ArrayList<>();
         btn_envia = view.findViewById(R.id.btn_afegir);
         btn_envia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +69,7 @@ public class amicsFragment extends Fragment {
 
     public void enviaSolicitud(View view) {
         DatabaseReference referenceEmail = FirebaseDatabase.getInstance().getReference("Users");
-        referenceEmail.addValueEventListener(new ValueEventListener() {
+        referenceEmail.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -86,6 +89,8 @@ public class amicsFragment extends Fragment {
 
                     }
                 }
+
+
             }
 
             @Override
@@ -95,33 +100,52 @@ public class amicsFragment extends Fragment {
         });
 
     }
+
     private void llegirSolicituds() {
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Peticions");
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                contactes.clear();
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     solicitud = snapshot.getValue(Solicitud.class);
+
                     assert solicitud != null;
                     assert firebaseUser != null;
 
-                    DatabaseReference referenceUsuaris = FirebaseDatabase.getInstance().getReference("Users");
-                    referenceUsuaris.addValueEventListener(new ValueEventListener() {
+                    solicituds.add(solicitud);
 
+                }
+
+                DatabaseReference referenceUsuaris = FirebaseDatabase.getInstance().getReference("Users");
+                referenceUsuaris.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            for (DataSnapshot snapshot1Usuaris : dataSnapshot.getChildren()) {
-                                contacte = snapshot1Usuaris.getValue(Contacte.class);
+                            contactes.clear();
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                contacte = snapshot.getValue(Contacte.class);
+                                contactesTemporal.add(contacte);
                                 assert contacte != null;
-                                if(solicitud.getEmisor().equals(contacte.getId()) && solicitud.getReceptor().equals(firebaseUser.getUid())) {
-                                    contactes.add(contacte);
-                                    solicitudsAdapter = new solicitudsAdapter(getContext(), contactes);
-                                    recyclerView.setAdapter(solicitudsAdapter);
-                                    solicitudsAdapter.notifyDataSetChanged();
-                                }
                             }
+
+                            for (Solicitud solicitud : solicituds) {
+
+                                for (Contacte contacte : contactesTemporal) {
+
+                                    if (solicitud.getEmisor().equals(contacte.getId()) && solicitud.getReceptor().equals(firebaseUser.getUid())) {
+                                        contactes.add(contacte);
+
+                                    }
+
+                                }
+
+
+                            }
+
+                            solicitudsAdapter = new solicitudsAdapter(getContext(), contactes);
+                            recyclerView.setAdapter(solicitudsAdapter);
+                            solicitudsAdapter.notifyDataSetChanged();
 
                         }
 
@@ -131,7 +155,6 @@ public class amicsFragment extends Fragment {
                         }
                     });
 
-                }
 
             }
 

@@ -1,6 +1,5 @@
 package cat.villalba.projectem7_david_raul.activities;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -9,7 +8,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -29,8 +27,8 @@ public class Chat extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         ViewPager viewPager = findViewById(R.id.view_pager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragmento(new chatsFragment(),"Xats");
-        viewPagerAdapter.addFragmento(new usersFragment(), "Contactes");
+        viewPagerAdapter.addFragmento(new chatsFragment(),getString(R.string.xat));
+        viewPagerAdapter.addFragmento(new usersFragment(), getString(R.string.contactes));
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

@@ -2,7 +2,6 @@ package cat.villalba.projectem7_david_raul.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +27,6 @@ import cat.villalba.projectem7_david_raul.adapters.Contacte;
 
 public class Registro extends AppCompatActivity {
 
-    private static final String TAG = "Registro" ;
     private FirebaseAuth mAuth;
     private DatabaseReference reference;
 

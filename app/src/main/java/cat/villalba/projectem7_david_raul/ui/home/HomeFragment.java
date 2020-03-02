@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import cat.villalba.projectem7_david_raul.activities.activity_presentacioPelis;
 import cat.villalba.projectem7_david_raul.adapters.Contacte;
 import cat.villalba.projectem7_david_raul.adapters.Peli;
 import cat.villalba.projectem7_david_raul.R;
