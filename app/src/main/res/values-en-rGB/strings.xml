@@ -65,5 +65,5 @@
     <string name="rebutja">Refuse</string>
     <string name="enviada_correctament">Request sent!</string>
     <string name="interessos_afegits">Added to your interests</string>
-    <string name="tusReviews">Your reviews</string>
+    <string name="interessos_eliminats">Removed from your interests</string>
 </resources>

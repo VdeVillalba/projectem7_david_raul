@@ -20,8 +20,7 @@
             android:theme="@style/NoAction" />
         <activity
             android:name=".activities.Chat"
-            android:label="Chat"
-            android:parentActivityName=".activities.pantalla_principal">
+            android:label="Chat">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cat.villalba.projectem7_david_raul.activities.pantalla_principal" />

@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import cat.villalba.projectem7_david_raul.R;
 import cat.villalba.projectem7_david_raul.adapters.Contacte;
@@ -31,6 +35,8 @@ public class usersFragment extends Fragment {
 private RecyclerView recyclerView;
 private ContactesAdapter contactesAdapter;
 private List<Contacte> contactes;
+private Map<String,String> amics;
+private Contacte contacte;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,34 +55,45 @@ private List<Contacte> contactes;
 
     private void llegirContactes() {
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
-
-        reference.addValueEventListener(new ValueEventListener() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                contactes.clear();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                contacte = dataSnapshot.getValue(Contacte.class);
+                amics = contacte.getAmics();
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Contacte contacte = snapshot.getValue(Contacte.class);
+                DatabaseReference referenceAmics = FirebaseDatabase.getInstance().getReference("Users");
+                referenceAmics.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        contactes.clear();
 
-                        assert contacte != null;
-                        assert firebaseUser != null;
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            Contacte contacte = snapshot.getValue(Contacte.class);
+                            assert contacte != null;
+                            assert firebaseUser != null;
 
-                    if(!contacte.getId().equals(firebaseUser.getUid())) {
-                        contactes.add(contacte);
+                            if (amics.containsKey(contacte.getId())) {
+                                contactes.add(contacte);
+                            }
+                        }
+
+                        contactesAdapter = new ContactesAdapter(getContext(), contactes);
+                        recyclerView.setAdapter(contactesAdapter);
+
                     }
-                }
 
-                contactesAdapter = new ContactesAdapter(getContext(), contactes);
-                recyclerView.setAdapter(contactesAdapter);
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onCancelled(DatabaseError databaseError) {
             }
         });
     }
-
 
 }

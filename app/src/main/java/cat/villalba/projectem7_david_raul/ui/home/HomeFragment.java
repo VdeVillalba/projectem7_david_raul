@@ -1,19 +1,21 @@
 package cat.villalba.projectem7_david_raul.ui.home;
 
-import android.content.Context;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +24,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
+import cat.villalba.projectem7_david_raul.activities.activity_presentacioPelis;
+import cat.villalba.projectem7_david_raul.adapters.Contacte;
 import cat.villalba.projectem7_david_raul.adapters.Peli;
 import cat.villalba.projectem7_david_raul.R;
 import cat.villalba.projectem7_david_raul.adapters.adaptadorPelis;
@@ -33,6 +38,10 @@ public class HomeFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ArrayList<Peli> mPeliculas;
     private adaptadorPelis mAdapter;
+    private FirebaseUser firebaseUser;
+    private Contacte contacte;
+    private List<String> interessos;
+    private String peliEliminar;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,7 +58,7 @@ public class HomeFragment extends Fragment {
 
         mRecyclerView.setAdapter(mAdapter);
 
-        initializeData();
+        initializeDataUsuari();
 
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT |
                 ItemTouchHelper.DOWN | ItemTouchHelper.UP,
@@ -65,6 +74,39 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                peliEliminar = mPeliculas.get(viewHolder.getAdapterPosition()).getTitulo();
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        contacte = dataSnapshot.getValue(Contacte.class);
+                        interessos = contacte.getInteressos();
+                        interessos.remove(peliEliminar);
+                        DatabaseReference referenceInteressos = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).child("interessos");
+                        referenceInteressos.setValue(interessos).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+
+                                    Toast.makeText(getContext(), (getContext().getString(R.string.interessos_eliminats)),
+                                            Toast.LENGTH_SHORT).show();
+
+                                } else {
+
+                                    Toast.makeText(getContext(), "Error",
+                                            Toast.LENGTH_SHORT).show();
+
+                                }
+                            }
+                        });
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+
                 mPeliculas.remove(viewHolder.getAdapterPosition());
                 mAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
 
@@ -77,6 +119,26 @@ public class HomeFragment extends Fragment {
 
     }
 
+    private void initializeDataUsuari() {
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                contacte = dataSnapshot.getValue(Contacte.class);
+                interessos = contacte.getInteressos();
+                initializeData();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+    }
+
+
     private void initializeData() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Pelis");
 
@@ -87,10 +149,11 @@ public class HomeFragment extends Fragment {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Peli peli = snapshot.getValue(Peli.class);
-
                     assert peli != null;
 
-                    mPeliculas.add(peli);
+                    if (interessos.contains(peli.getTitulo())) {
+                        mPeliculas.add(peli);
+                    }
 
                 }
 

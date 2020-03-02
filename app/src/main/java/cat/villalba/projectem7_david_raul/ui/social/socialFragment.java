@@ -21,8 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import cat.villalba.projectem7_david_raul.R;
+import cat.villalba.projectem7_david_raul.adapters.Contacte;
 import cat.villalba.projectem7_david_raul.adapters.Resenya;
 import cat.villalba.projectem7_david_raul.adapters.ResenyasAdapter;
 
@@ -31,6 +33,8 @@ public class socialFragment extends Fragment {
     private RecyclerView recyclerView;
     private ResenyasAdapter resenyasAdapter;
     private List<Resenya> mResenyas;
+    private Map<String,String> amics;
+    private Contacte contacte;
 
 
 
@@ -50,26 +54,39 @@ public class socialFragment extends Fragment {
 
     private void recuperarResenyes() {
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Resenyes");
-        reference.addValueEventListener(new ValueEventListener() {
+        DatabaseReference referenceUser = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        referenceUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                mResenyas.clear();
+                contacte = dataSnapshot.getValue(Contacte.class);
+                amics = contacte.getAmics();
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Resenya resenya = snapshot.getValue(Resenya.class);
-                    System.out.println(resenya.getTextResenya());
-                    assert resenya != null;
-                    assert firebaseUser != null;
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Resenyes");
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        mResenyas.clear();
 
-                    if (!resenya.getUsuariId().equals(firebaseUser.getEmail())) {
-                        //PLANTEAR AQUI PARA CONDICIONAR EL METER SOLO LA DE AMIGOS
-                        mResenyas.add(resenya);
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            Resenya resenya = snapshot.getValue(Resenya.class);
+                            assert resenya != null;
+                            assert firebaseUser != null;
+
+                            if (amics.containsValue(resenya.getUsuariId())) {
+                                mResenyas.add(resenya);
+                            }
+
+                        }
+
+                        resenyasAdapter = new ResenyasAdapter(getContext(), mResenyas);
+                        recyclerView.setAdapter(resenyasAdapter);
                     }
-                }
 
-                resenyasAdapter = new ResenyasAdapter(getContext(), mResenyas);
-                recyclerView.setAdapter(resenyasAdapter);
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
 
             @Override

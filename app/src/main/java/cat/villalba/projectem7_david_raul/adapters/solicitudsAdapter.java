@@ -82,15 +82,11 @@ public class solicitudsAdapter extends RecyclerView.Adapter<solicitudsAdapter.Vi
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             removeItem(contacte);
-                                            //mUsers.remove(contacte);
                                             String codiPeticio = contacte.getId() + firebaseUser.getUid();
                                             System.out.println(codiPeticio);
                                             DatabaseReference referencePeticio = FirebaseDatabase.getInstance().getReference("Peticions").child(codiPeticio);
                                             referencePeticio.removeValue();
-                                            /*Intent intent = new Intent(mContext, pantalla_principal.class);
-                                            intent.putExtra("frgCargar", "recarrega");
-                                            (mContext).startActivity(intent);
-                                            ((Activity)mContext).finish();*/
+
 
                                         }
                                     }
