@@ -34,4 +34,10 @@
         android:name="cat.villalba.projectem7_david_raul.ui.users.usuariosFragment"
         android:label="@string/menu_usuari"
         tools:layout="@layout/fragment_usuarios" />
+
+    <fragment
+        android:id="@+id/nav_llicencia"
+        android:name="cat.villalba.projectem7_david_raul.ui.llicencia.llicenciaFragment"
+        android:label="@string/info_llicencia"
+        tools:layout="@layout/fragment_llicencia"/>
 </navigation>

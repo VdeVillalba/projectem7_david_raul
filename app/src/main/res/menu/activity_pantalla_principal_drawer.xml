@@ -34,4 +34,12 @@
                 android:onClick="logout"/>
         </menu>
     </item>
+    <item android:title="Llicència">
+        <menu>
+            <item
+                android:id="@+id/nav_llicencia"
+                android:icon="@drawable/ic_announcement_black_24dp"
+                android:title="@string/info_llicencia"/>
+        </menu>
+    </item>
 </menu>

@@ -61,7 +61,7 @@ public class pantalla_principal extends AppCompatActivity {
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_totespelis, R.id.nav_social, R.id.nav_usuario, R.id.nav_amigos,
-                R.id.nav_logout)
+                R.id.nav_logout, R.id.nav_llicencia)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

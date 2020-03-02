@@ -68,4 +68,10 @@
     <string name="enviada_correctament">Solicitud enviada!</string>
     <string name="interessos_afegits">Añadida a tus intereses</string>
     <string name="interessos_eliminats">Eliminada de tus intereses</string>
+    <string name="tusReviews">Tus reseñas</string>
+    <string name="llicencia">Licencia Creative Commons</string>
+    <string name="autor">Reconocer autoria</string>
+    <string name="canvi">No modificable</string>
+    <string name="economic">No uso comercial</string>
+    <string name="info_llicencia">Información</string>
 </resources>
