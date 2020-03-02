@@ -75,7 +75,6 @@
         android:textStyle="bold"
         android:text="@string/pendent"
         android:textSize="20sp">
-
     </TextView>
 
     <androidx.core.widget.NestedScrollView
