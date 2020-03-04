@@ -62,7 +62,8 @@
             android:background="@android:color/transparent"
             android:hint="@string/hint_missatge"
             android:textColorHint="@color/colorPrimaryDark"
-            android:inputType="textLongMessage"
+            android:inputType="textCapSentences"
+            android:imeOptions="actionDone"
             android:textColor="#000"/>
 
         <ImageButton

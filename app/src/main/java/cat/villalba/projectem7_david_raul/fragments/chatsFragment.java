@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class chatsFragment extends Fragment {
     private RecyclerView recyclerView;
     private ContactesAdapter contactesAdapter;
     private List<Contacte> mContactes;
+    private List<Contacte> contactes;
 
     FirebaseUser firebaseUser;
     DatabaseReference reference;
@@ -51,7 +53,7 @@ public class chatsFragment extends Fragment {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         contactesList = new ArrayList<>();
-
+        contactes = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Xats");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -85,28 +87,29 @@ public class chatsFragment extends Fragment {
     private void llegirXats() {
         mContactes = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Users");
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mContactes.clear();
 
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Contacte contacte = snapshot.getValue(Contacte.class);
+                    contactes.add(contacte);
 
+                }
+
+                for (Contacte contacte : contactes) {
                     for (String id : contactesList) {
                         if(contacte.getId().equals(id)) {
-                            if(mContactes.size() != 0) {
-                                for (Contacte contacte1 : mContactes) {
-                                    if (!contacte.getId().equals(contacte1.getId())) {
+                            if(mContactes.size() !=0) {
+                                if (!mContactes.contains(contacte)) {
                                         mContactes.add(contacte);
-                                    }
                                 }
                             } else {
                                 mContactes.add(contacte);
                             }
                         }
                     }
-
                 }
 
                 contactesAdapter = new ContactesAdapter(getContext(), mContactes);

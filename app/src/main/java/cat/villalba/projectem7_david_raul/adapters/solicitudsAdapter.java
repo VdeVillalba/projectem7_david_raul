@@ -86,6 +86,12 @@ public class solicitudsAdapter extends RecyclerView.Adapter<solicitudsAdapter.Vi
                                         }
                                     }
                                 });
+
+                                reference = FirebaseDatabase.getInstance().getReference("Users")
+                                        .child(contacte.getId()).child("amics");
+                                amic.clear();
+                                amic.put(firebaseUser.getUid(), firebaseUser.getEmail());
+                                reference.updateChildren(amic);
                             }
                         });
                 alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, (mContext.getString(R.string.rebutja)),

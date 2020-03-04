@@ -3,6 +3,7 @@ package cat.villalba.projectem7_david_raul.adapters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class Contacte {
 
@@ -61,5 +62,19 @@ public class Contacte {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contacte contacte = (Contacte) o;
+        return id.equals(contacte.id) &&
+                nomContacte.equals(contacte.nomContacte);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nomContacte);
     }
 }

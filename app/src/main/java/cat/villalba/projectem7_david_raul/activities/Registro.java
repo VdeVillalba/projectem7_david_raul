@@ -72,7 +72,7 @@ public class Registro extends AppCompatActivity {
     }
 
     public void registrarUsuario() {
-        String mail = correo.getText().toString();
+        String mail = correo.getText().toString().trim();
         String contra = pass1.getText().toString();
         switch (comprobarContrasena(pass1, pass2)) {
             case 1:
