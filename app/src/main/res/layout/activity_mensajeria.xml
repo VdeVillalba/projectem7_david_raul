@@ -67,8 +67,9 @@
             android:textColor="#000"/>
 
         <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:contentDescription="@string/envia_missatge"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="@drawable/ic_enviar"
             android:id="@+id/btn_enviar"
             android:layout_alignParentEnd="true"

@@ -101,6 +101,7 @@
 
             <RatingBar
                 android:isIndicator="true"
+                android:contentDescription="@string/descripcioEstrellesCultura"
                 android:id="@+id/estrelles_cultural"
                 android:layout_width="238dp"
                 android:layout_height="46dp"
@@ -113,11 +114,12 @@
 
             <RatingBar
                 android:isIndicator="true"
+                android:contentDescription="@string/descripcioEstrellesFuncional"
                 android:id="@+id/estrelles_funcional"
                 android:layout_width="238dp"
                 android:layout_height="46dp"
-                android:layout_below="@id/txt_puntuacion3"
                 android:layout_marginStart="25dp"
+                android:layout_below="@id/txt_puntuacion3"
                 android:numStars="5"
                 android:stepSize="1"
                 tools:layout_editor_absoluteX="48dp"
@@ -125,24 +127,26 @@
 
             <RatingBar
                 android:isIndicator="true"
+                android:contentDescription="@string/descripcioEstrellesGenere"
                 android:id="@+id/estrelles_genere"
                 android:layout_width="242dp"
                 android:layout_height="47dp"
-                android:layout_below="@id/txt_puntuacion"
-                android:layout_marginStart="25dp"
                 android:numStars="5"
                 android:stepSize="1"
+                android:layout_marginStart="25dp"
+                android:layout_below="@id/txt_puntuacion"
                 tools:layout_editor_absoluteX="48dp"
                 tools:layout_editor_absoluteY="212dp" />
 
             <RatingBar
                 android:isIndicator="true"
+                android:contentDescription="@string/descripcioEstrellesLGTBI"
                 android:id="@+id/estrelles_lgtbi"
                 android:layout_width="242dp"
                 android:layout_height="47dp"
+                android:numStars="5"
                 android:layout_below="@id/txt_puntuacion4"
                 android:layout_marginStart="25dp"
-                android:numStars="5"
                 android:stepSize="1"
                 tools:layout_editor_absoluteX="48dp"
                 tools:layout_editor_absoluteY="420dp" />
@@ -168,7 +172,7 @@
                         android:layout_height="wrap_content"
                         android:justificationMode="inter_word"
                         android:padding="8sp"
-                        android:text="Resenya"
+                        android:text="@string/txt_resenya"
                         android:textSize="12sp" />
                 </androidx.core.widget.NestedScrollView>
 

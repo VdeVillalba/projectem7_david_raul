@@ -20,6 +20,13 @@
         <item name="boxStrokeColor">@color/textInputOutlineColor</item>
     </style>
 
+    <style name="Amistad" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/CajaPelis</item>
+        <item name="android:color">@color/colorAccent</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="boxStrokeColor">@color/textInputOutlineColorBlack</item>
+    </style>
+
     <style name="Style.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">@color/textColorPrimary</item>
         <item name="backgroundTint">@color/colorPrimaryDark</item>

@@ -112,6 +112,7 @@
 
             <RatingBar
                 android:isIndicator="true"
+                android:contentDescription="@string/descripcioEstrellesCultura"
                 android:id="@+id/estrelles_cultural"
                 android:layout_width="238dp"
                 android:layout_height="46dp"
@@ -124,6 +125,7 @@
 
             <RatingBar
                 android:isIndicator="true"
+                android:contentDescription="@string/descripcioEstrellesFuncional"
                 android:id="@+id/estrelles_funcional"
                 android:layout_width="238dp"
                 android:layout_height="46dp"
@@ -136,6 +138,7 @@
 
             <RatingBar
                 android:isIndicator="true"
+                android:contentDescription="@string/descripcioEstrellesGenere"
                 android:id="@+id/estrelles_genere"
                 android:layout_width="242dp"
                 android:layout_height="47dp"
@@ -148,6 +151,7 @@
 
             <RatingBar
                 android:isIndicator="true"
+                android:contentDescription="@string/descripcioEstrellesLGTBI"
                 android:id="@+id/estrelles_lgtbi"
                 android:layout_width="242dp"
                 android:layout_height="47dp"

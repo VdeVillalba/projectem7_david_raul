@@ -8,5 +8,6 @@
     <color name="loginPageBackgroundColor">#FFFFFF</color>
     <color name="productGridBackgroundColor">#FFFFFF</color>
     <color name="textInputOutlineColor">#FFFFFF</color>
+    <color name="textInputOutlineColorBlack">#000000</color>
     <color name="mtrl_textinput_default_box_stroke_color" override="true">#fff</color>
 </resources>

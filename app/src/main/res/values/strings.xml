@@ -75,4 +75,12 @@
     <string name="info_peli">Informació general</string>
     <string name="xat">Xats</string>
     <string name="contactes">Contactes</string>
+    <string name="fab">Inicia Xats</string>
+    <string name="descripcioEstrellesGenere">Valoració de consciència de gènere</string>
+    <string name="descripcioEstrellesLGTBI">Valoració de LGTBI</string>
+    <string name="descripcioEstrellesFuncional">Valoració de diversitat funcional</string>
+    <string name="descripcioEstrellesCultura">Valoració de diversitat cultural</string>
+    <string name="redacta_resenya">Escrigui una resenya...</string>
+    <string name="envia_missatge">Enviar</string>
+    <string name="txt_resenya">Cos de la resenya</string>
 </resources>

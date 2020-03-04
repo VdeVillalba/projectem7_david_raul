@@ -78,4 +78,12 @@
     <string name="info_peli">Información general</string>
     <string name="xat">Chats</string>
     <string name="contactes">Contactos</string>
+    <string name="fab">Inicia Chats</string>
+    <string name="descripcioEstrellesCultura">Valoracion de diversidad cultural</string>
+    <string name="descripcioEstrellesFuncional">Valoración de diversidad cultural</string>
+    <string name="descripcioEstrellesGenere">Valoración de conciencia de género</string>
+    <string name="descripcioEstrellesLGTBI">Valoración LGTBI</string>
+    <string name="redacta_resenya">Escriba una reseña</string>
+    <string name="envia_missatge">Enviar</string>
+    <string name="txt_resenya">Cuerpo de la reseña</string>
 </resources>

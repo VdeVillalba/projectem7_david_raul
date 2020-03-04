@@ -8,10 +8,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/info"
+        android:backgroundTint="#C6C6C6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp">
@@ -19,6 +21,7 @@
 
             <TextView
                 android:id="@+id/titol"
+                android:textColor="#000000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20sp"
@@ -26,12 +29,14 @@
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:text="@string/nou_amic" />
+
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Amistad"
                 android:id="@+id/quadre_adreca"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
-                style="@style/Pelis"
                 android:hint="@string/apodo"
+                android:textColorHint="#000000"
                 android:layout_marginTop="20sp"
                 android:layout_alignStart="@+id/titol"
                 android:layout_below="@id/titol">
@@ -41,6 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20sp"
+
                     android:layout_alignStart="@+id/titol"
                     android:layout_below="@id/titol">
 
@@ -54,7 +60,7 @@
                 android:layout_below="@+id/quadre_adreca"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#808080"
+                android:backgroundTint="#303030"
                 android:text="@string/afegir">
 
             </Button>
@@ -66,6 +72,7 @@
 
 
     <TextView
+        android:textColor="@color/colorAccent"
         android:id="@+id/pendents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
